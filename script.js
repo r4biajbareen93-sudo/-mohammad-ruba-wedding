@@ -8,7 +8,6 @@
 
   /* البريد الذي تصل إليه التهاني */
   var MAIL = 'alnajah10@hotmail.com';
-  var ENDPOINT = 'https://formsubmit.co/ajax/' + MAIL;
 
   var intro     = document.getElementById('intro');
   var openBtn   = document.getElementById('openBtn');
@@ -232,15 +231,24 @@
     intro.classList.add('opening');
     openBtn.disabled = true;
 
-    var showAt = reduce ? 200 : 2200;
-    var goneAt = reduce ? 320 : 3000;
+    var letter = document.getElementById('letter');
+
+    var tRise = reduce ? 60   : 1900;   /* البطاقة تخرج وتظهر أمام الضيف */
+    var tOpen = reduce ? 120  : 2950;   /* تُفتح البطاقة كما تُفتح باليد */
+    var tZoom = reduce ? 200  : 4550;   /* تكبر البطاقة وتتحول إلى الدعوة */
+    var tPage = reduce ? 220  : 4750;
+    var tGone = reduce ? 320  : 5250;
+
+    setTimeout(function () { if (letter) { letter.classList.add('show'); } }, tRise);
+    setTimeout(function () { if (letter) { letter.classList.add('open'); } }, tOpen);
+    setTimeout(function () { if (letter) { letter.classList.remove('show'); letter.classList.add('zoom'); } }, tZoom);
 
     setTimeout(function () {
       page.classList.add('live');
       if (progress) { progress.classList.add('live'); }
       armReveals();
       setTheme(1);
-    }, showAt);
+    }, tPage);
 
     setTimeout(function () {
       intro.classList.add('gone');
@@ -248,11 +256,11 @@
       window.scrollTo(0, 0);
       onScroll();
       if (scrollCue && !reduce) { scrollCue.classList.add('show'); }
-    }, goneAt);
+    }, tGone);
 
     setTimeout(function () {
       intro.style.display = 'none';
-    }, goneAt + 1050);
+    }, tGone + 1100);
   }
 
   openBtn.addEventListener('click', openInvitation);
@@ -298,26 +306,42 @@
   setInterval(tick, 1000);
 
   /* ------------------------------------------------------------------
-     كلمة من القلب — الإرسال إلى البريد
+     كلمة من القلب — الإرسال إلى البريد عبر iframe مخفي (بلا CORS)
   ------------------------------------------------------------------ */
-  function showError(msg, withMail) {
+  var fsFrame = document.getElementById('fsFrame');
+  var fsUrl   = document.getElementById('fsUrl');
+  var sending = false;
+  var doneTimer = null;
+
+  if (fsUrl) { fsUrl.value = location.href; }
+
+  function wishSuccess() {
+    if (!sending) { return; }
+    sending = false;
+    if (doneTimer) { clearTimeout(doneTimer); doneTimer = null; }
+    wishForm.hidden = true;
+    wishDone.hidden = false;
+  }
+
+  if (fsFrame) {
+    fsFrame.addEventListener('load', function () { wishSuccess(); });
+  }
+
+  function showError(msg) {
     if (!wError) { return; }
     wError.innerHTML = '';
     wError.appendChild(document.createTextNode(msg));
-    if (withMail) {
-      var subject = encodeURIComponent('تهنئة جديدة لزفاف محمد زياد');
-      var body = encodeURIComponent('الاسم: ' + wName.value + '\n\nالتهنئة: ' + wMsg.value);
-      var a = document.createElement('a');
-      a.href = 'mailto:' + MAIL + '?subject=' + subject + '&body=' + body;
-      a.textContent = ' إرسالها عبر البريد';
-      wError.appendChild(a);
-    }
+    var subject = encodeURIComponent('تهنئة جديدة لزفاف محمد زياد');
+    var body = encodeURIComponent('الاسم: ' + wName.value + '\n\nالتهنئة: ' + wMsg.value);
+    var a = document.createElement('a');
+    a.href = 'mailto:' + MAIL + '?subject=' + subject + '&body=' + body;
+    a.textContent = ' إرسالها عبر البريد';
+    wError.appendChild(a);
     wError.hidden = false;
   }
 
   if (wishForm) {
     wishForm.addEventListener('submit', function (e) {
-      e.preventDefault();
       wError.hidden = true;
       wName.classList.remove('err');
       wMsg.classList.remove('err');
@@ -326,53 +350,26 @@
       var msgVal  = wMsg.value.trim();
 
       if (nameVal.length < 2) {
+        e.preventDefault();
         wName.classList.add('err');
         wName.focus();
-        showError('اكتبوا الاسم من فضلكم.', false);
+        showError('اكتبوا الاسم من فضلكم.');
         return;
       }
       if (msgVal.length < 2) {
+        e.preventDefault();
         wMsg.classList.add('err');
         wMsg.focus();
-        showError('اكتبوا كلمتكم من فضلكم.', false);
+        showError('اكتبوا كلمتكم من فضلكم.');
         return;
       }
 
+      /* الإرسال يتم داخل iframe مخفي — الضيف يبقى في الصفحة */
+      sending = true;
       sendBtn.disabled = true;
       sendTxt.textContent = 'جارٍ الإرسال…';
 
-      fetch(ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          '_subject': 'تهنئة جديدة لزفاف محمد زياد',
-          '_template': 'table',
-          '_captcha': 'false',
-          'المصدر': 'دعوة زفاف محمد زياد',
-          'الاسم': nameVal,
-          'التهنئة': msgVal
-        })
-      })
-      .then(function (res) { return res.json().catch(function () { return {}; }); })
-      .then(function (data) {
-        var ok = data && (data.success === 'true' || data.success === true);
-        if (ok) {
-          wishForm.hidden = true;
-          wishDone.hidden = false;
-        } else {
-          sendBtn.disabled = false;
-          sendTxt.textContent = 'إرسال التهنئة';
-          showError('لم يصل الإرسال هذه المرة. جرّبوا مرة أخرى أو', true);
-        }
-      })
-      .catch(function () {
-        sendBtn.disabled = false;
-        sendTxt.textContent = 'إرسال التهنئة';
-        showError('تعذّر الاتصال بالشبكة. جرّبوا مرة أخرى أو', true);
-      });
+      doneTimer = setTimeout(wishSuccess, 6000);
     });
   }
 })();
