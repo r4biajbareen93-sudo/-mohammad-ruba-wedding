@@ -1,0 +1,1734 @@
+/* =====================================================================
+   دعوة زفاف · محمد زياد
+   Cinematic Luxury — Mobile First / iPhone Safari
+   ===================================================================== */
+
+:root{
+  --ink:        #050406;
+  --ink-2:      #0b090c;
+  --champagne:  #F6E7C1;
+  --ivory:      #F2EBDD;
+  --beige:      #B79C73;
+  --gold:       #C9A25A;
+  --gold-deep:  #8A6A2E;
+  --gold-soft:  #E4CB92;
+  --burgundy:   #3A0E18;
+  --choco:      #1C120C;
+
+  --f-display: 'El Messiri', 'Cairo', 'Times New Roman', serif;
+  --f-body:    'Cairo', 'Segoe UI', system-ui, sans-serif;
+  --f-num:     'Cairo', 'Segoe UI', system-ui, sans-serif;
+
+  --ease:  cubic-bezier(.16,1,.3,1);
+  --ease2: cubic-bezier(.65,0,.35,1);
+
+  --pad: max(22px, env(safe-area-inset-left));
+}
+
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+
+html{
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+  max-width:100%;
+  background:var(--ink);
+  -webkit-text-size-adjust:100%;
+}
+
+body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+  background:var(--ink);
+  font-family:var(--f-body);
+  color:var(--champagne);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  -webkit-tap-highlight-color:transparent;
+  overscroll-behavior-y:none;
+}
+
+body.locked{
+  overflow:hidden;
+  height:100svh;
+  position:fixed;
+  inset:0;
+}
+
+img{ display:block; max-width:100%; }
+button{ font-family:inherit; color:inherit; background:none; border:0; cursor:pointer; }
+a{ text-decoration:none; color:inherit; }
+:focus-visible{ outline:1px solid var(--gold-soft); outline-offset:4px; }
+
+/* ============================ ذهب متحرك ============================ */
+.gold-text{
+  background:linear-gradient(100deg,
+    #8A6A2E 0%, #C9A25A 18%, #F6E7C1 34%, #FFF6DE 42%,
+    #E4CB92 52%, #C9A25A 68%, #8A6A2E 100%);
+  background-size:280% 100%;
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+  animation:foilFlow 9s linear infinite;
+}
+@keyframes foilFlow{
+  0%{ background-position:0% 50%; }
+  100%{ background-position:280% 50%; }
+}
+
+/* =====================================================================
+   الطبقات السينمائية
+   ===================================================================== */
+.lyr{
+  position:absolute;
+  inset:-8%;
+  display:block;
+  pointer-events:none;
+  will-change:transform,opacity;
+}
+
+.satin{
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(201,162,90,.13) 0%, rgba(201,162,90,0) 55%),
+    repeating-linear-gradient(102deg,
+      rgba(255,255,255,.028) 0px, rgba(255,255,255,.028) 1px,
+      rgba(0,0,0,0) 2px, rgba(0,0,0,0) 26px),
+    radial-gradient(150% 120% at 82% 18%, #17121c 0%, #0a080c 42%, #050406 78%);
+  animation:satinDrift 28s ease-in-out infinite alternate;
+}
+.satin-tight{
+  background:
+    radial-gradient(100% 70% at 50% 6%, rgba(230,203,146,.17) 0%, rgba(0,0,0,0) 60%),
+    repeating-linear-gradient(88deg,
+      rgba(255,255,255,.03) 0px, rgba(255,255,255,.03) 1px,
+      rgba(0,0,0,0) 2px, rgba(0,0,0,0) 18px),
+    radial-gradient(140% 110% at 20% 92%, #191320 0%, #09070c 45%, #050406 82%);
+}
+@keyframes satinDrift{
+  0%{ transform:scale(1.06) translate3d(0,0,0) rotate(0deg); }
+  100%{ transform:scale(1.15) translate3d(-2%,1.6%,0) rotate(.6deg); }
+}
+
+.glow-core{
+  background:radial-gradient(46% 34% at 50% 42%,
+    rgba(246,231,193,.20) 0%, rgba(201,162,90,.09) 34%, rgba(0,0,0,0) 72%);
+  animation:glowPulse 8s ease-in-out infinite;
+}
+@keyframes glowPulse{
+  0%,100%{ opacity:.75; transform:scale(1); }
+  50%{ opacity:1; transform:scale(1.07); }
+}
+
+.rays{
+  background:conic-gradient(from 200deg at 50% -10%,
+    rgba(246,231,193,0) 0deg, rgba(246,231,193,.10) 22deg,
+    rgba(246,231,193,0) 44deg, rgba(201,162,90,.07) 70deg,
+    rgba(246,231,193,0) 100deg);
+  filter:blur(16px);
+  animation:raysTurn 40s linear infinite;
+}
+@keyframes raysTurn{ to{ transform:rotate(360deg) scale(1.1); } }
+
+.smoke{
+  background:
+    radial-gradient(38% 30% at 30% 70%, rgba(255,255,255,.05) 0%, rgba(0,0,0,0) 70%),
+    radial-gradient(30% 26% at 74% 30%, rgba(201,162,90,.07) 0%, rgba(0,0,0,0) 72%);
+  filter:blur(26px);
+  mix-blend-mode:screen;
+}
+.smoke-a{ animation:smokeA 34s ease-in-out infinite alternate; }
+.smoke-b{ animation:smokeB 42s ease-in-out infinite alternate; opacity:.75; }
+@keyframes smokeA{
+  0%{ transform:translate3d(-4%,3%,0) scale(1.1); }
+  100%{ transform:translate3d(6%,-5%,0) scale(1.32); }
+}
+@keyframes smokeB{
+  0%{ transform:translate3d(5%,-2%,0) scale(1.2); }
+  100%{ transform:translate3d(-6%,6%,0) scale(1.04); }
+}
+
+.bokeh{
+  background:
+    radial-gradient(circle at 18% 24%, rgba(246,231,193,.30) 0 2px, rgba(0,0,0,0) 12px),
+    radial-gradient(circle at 78% 16%, rgba(201,162,90,.34) 0 3px, rgba(0,0,0,0) 20px),
+    radial-gradient(circle at 62% 66%, rgba(246,231,193,.22) 0 4px, rgba(0,0,0,0) 26px),
+    radial-gradient(circle at 30% 78%, rgba(201,162,90,.24) 0 3px, rgba(0,0,0,0) 22px),
+    radial-gradient(circle at 88% 58%, rgba(246,231,193,.16) 0 5px, rgba(0,0,0,0) 30px),
+    radial-gradient(circle at 8%  56%, rgba(201,162,90,.20) 0 2px, rgba(0,0,0,0) 16px);
+  filter:blur(6px);
+  animation:bokehFloat 26s ease-in-out infinite alternate;
+}
+@keyframes bokehFloat{
+  0%{ opacity:.7; scale:1; }
+  100%{ opacity:1; scale:1.12; }
+}
+
+.chandelier{
+  background:
+    radial-gradient(28% 18% at 50% 4%,  rgba(246,231,193,.34) 0%, rgba(0,0,0,0) 72%),
+    radial-gradient(6% 4%  at 42% 10%, rgba(246,231,193,.55) 0%, rgba(0,0,0,0) 70%),
+    radial-gradient(5% 3%  at 58% 13%, rgba(246,231,193,.45) 0%, rgba(0,0,0,0) 70%),
+    radial-gradient(4% 3%  at 50% 18%, rgba(246,231,193,.40) 0%, rgba(0,0,0,0) 70%),
+    radial-gradient(9% 6%  at 34% 6%,  rgba(201,162,90,.32) 0%, rgba(0,0,0,0) 70%),
+    radial-gradient(9% 6%  at 66% 7%,  rgba(201,162,90,.28) 0%, rgba(0,0,0,0) 70%);
+  filter:blur(11px);
+  animation:chandSway 14s ease-in-out infinite alternate;
+}
+@keyframes chandSway{
+  0%{ transform:translate3d(-1%,0,0) scale(1.02); opacity:.85; }
+  100%{ transform:translate3d(1.5%,1%,0) scale(1.08); opacity:1; }
+}
+
+.rose-field{
+  background:
+    radial-gradient(26% 20% at 12% 86%, rgba(58,14,24,.95) 0%, rgba(58,14,24,0) 70%),
+    radial-gradient(22% 17% at 88% 78%, rgba(74,16,28,.85) 0%, rgba(74,16,28,0) 72%),
+    radial-gradient(18% 15% at 66% 94%, rgba(43,10,18,.9) 0%, rgba(43,10,18,0) 70%),
+    radial-gradient(20% 16% at 22% 12%, rgba(58,14,24,.7) 0%, rgba(58,14,24,0) 72%),
+    radial-gradient(30% 24% at 50% 40%, rgba(201,162,90,.10) 0%, rgba(0,0,0,0) 70%),
+    radial-gradient(140% 110% at 50% 60%, #140a0f 0%, #090508 50%, #050406 86%);
+  filter:blur(2px);
+  animation:slowDrift 26s ease-in-out infinite alternate;
+}
+
+.candles{
+  background:
+    radial-gradient(8% 15% at 20% 72%, rgba(255,196,110,.5) 0%, rgba(0,0,0,0) 70%),
+    radial-gradient(6% 12% at 50% 80%, rgba(255,206,128,.45) 0%, rgba(0,0,0,0) 70%),
+    radial-gradient(7% 14% at 80% 68%, rgba(255,186,100,.42) 0%, rgba(0,0,0,0) 70%),
+    radial-gradient(42% 32% at 50% 78%, rgba(107,42,23,.45) 0%, rgba(0,0,0,0) 78%),
+    radial-gradient(140% 110% at 50% 26%, #1C120C 0%, #0a0708 55%, #050406 88%);
+  filter:blur(3px);
+  animation:flicker 5.5s ease-in-out infinite;
+}
+@keyframes flicker{
+  0%,100%{ opacity:.92; transform:scale(1.02); }
+  38%{ opacity:1; transform:scale(1.05); }
+  62%{ opacity:.86; transform:scale(1.03); }
+}
+
+.crystal{
+  background:
+    linear-gradient(115deg, rgba(246,231,193,.07) 0%, rgba(246,231,193,0) 26%),
+    linear-gradient(255deg, rgba(201,162,90,.08) 0%, rgba(201,162,90,0) 30%),
+    radial-gradient(38% 28% at 50% 22%, rgba(242,235,221,.10) 0%, rgba(0,0,0,0) 74%),
+    radial-gradient(150% 120% at 50% 60%, #100d14 0%, #08060a 48%, #050406 84%);
+  animation:slowDrift 30s ease-in-out infinite alternate;
+}
+
+.deep-warm{
+  background:
+    radial-gradient(52% 38% at 50% 36%, rgba(201,162,90,.15) 0%, rgba(0,0,0,0) 72%),
+    radial-gradient(150% 120% at 50% 50%, #1C120C 0%, #090708 48%, #050406 84%);
+  animation:slowZoom 34s ease-in-out infinite alternate;
+}
+.spot{
+  background:radial-gradient(30% 24% at 50% 32%, rgba(246,231,193,.16) 0%, rgba(0,0,0,0) 72%);
+  filter:blur(18px);
+  animation:glowPulse 9s ease-in-out infinite;
+}
+@keyframes slowZoom{
+  0%{ transform:scale(1.03); }
+  100%{ transform:scale(1.14); }
+}
+@keyframes slowDrift{
+  0%{ transform:scale(1.05) translate3d(0,0,0); }
+  100%{ transform:scale(1.13) translate3d(1.6%,-2%,0); }
+}
+
+.vignette{
+  background:radial-gradient(78% 62% at 50% 48%, rgba(0,0,0,0) 40%, rgba(0,0,0,.74) 100%);
+}
+
+/* ============================ الخلفية الثابتة ============================ */
+.backdrop{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+  background:var(--ink);
+}
+.theme{
+  position:absolute; inset:0;
+  opacity:0;
+  transition:opacity 1.6s var(--ease);
+  will-change:opacity;
+}
+.theme.on{ opacity:1; }
+
+/* ============================ الغبار الذهبي ============================ */
+.dust{
+  position:fixed; inset:0;
+  z-index:6;
+  pointer-events:none;
+  overflow:hidden;
+}
+.mote{
+  position:absolute;
+  bottom:-14px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(255,247,222,.95) 0%, rgba(201,162,90,.5) 40%, rgba(201,162,90,0) 70%);
+  will-change:transform,opacity;
+  animation:moteRise linear infinite;
+}
+@keyframes moteRise{
+  0%{   transform:translate3d(0,0,0) scale(.6); opacity:0; }
+  12%{  opacity:.9; }
+  70%{  opacity:.55; }
+  100%{ transform:translate3d(var(--dx,14px),-104svh,0) scale(1.2); opacity:0; }
+}
+
+/* ============================ شريط التقدّم ============================ */
+.progress{
+  position:fixed;
+  top:0; left:0; right:0;
+  height:2px;
+  z-index:70;
+  background:rgba(201,162,90,.12);
+  opacity:0;
+  transition:opacity .8s var(--ease);
+}
+.progress.live{ opacity:1; }
+.progress span{
+  display:block;
+  height:100%;
+  width:100%;
+  transform:scaleX(0);
+  transform-origin:right center;
+  background:linear-gradient(90deg, rgba(138,106,46,.2), #C9A25A 40%, #F6E7C1);
+  box-shadow:0 0 12px rgba(201,162,90,.5);
+}
+
+/* =====================================================================
+   الشاشة الافتتاحية — الظرف
+   ===================================================================== */
+.intro{
+  position:fixed; inset:0;
+  z-index:50;
+  display:flex; align-items:center; justify-content:center;
+  padding:calc(env(safe-area-inset-top) + 24px) var(--pad) calc(env(safe-area-inset-bottom) + 24px);
+  overflow:hidden;
+  background:var(--ink);
+}
+.intro-bg{ position:absolute; inset:0; overflow:hidden; }
+
+.intro-inner{
+  position:relative; z-index:2;
+  width:100%; max-width:420px;
+  display:flex; flex-direction:column; align-items:center;
+  gap:clamp(18px,4.4vh,34px);
+  text-align:center;
+}
+
+.intro-eyebrow{
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:clamp(16px,4.6vw,20px);
+  letter-spacing:.28em;
+  color:#EBD6A4;
+  opacity:0;
+  animation:fadeUp 1.4s .3s var(--ease) both;
+}
+
+.env-wrap{
+  position:relative;
+  width:min(84vw,330px);
+  aspect-ratio:1 / .68;
+  perspective:1400px;
+  perspective-origin:50% 40%;
+  opacity:0;
+  animation:envIn 1.8s .55s var(--ease) both;
+}
+@keyframes envIn{
+  0%{ opacity:0; transform:translate3d(0,26px,0) scale(.9) rotateX(18deg); }
+  100%{ opacity:1; transform:none; }
+}
+
+.envelope{
+  position:absolute; inset:0;
+  transform-style:preserve-3d;
+  animation:envFloat 8s ease-in-out infinite;
+}
+@keyframes envFloat{
+  0%,100%{ transform:translate3d(0,0,0) rotateX(4deg) rotateZ(-.4deg); }
+  50%{ transform:translate3d(0,-8px,0) rotateX(1deg) rotateZ(.5deg); }
+}
+
+.env-back{
+  position:absolute; inset:0;
+  border-radius:8px;
+  background:linear-gradient(150deg,#191320 0%,#0d0912 55%,#151020 100%);
+  box-shadow:inset 0 0 0 1px rgba(201,162,90,.35);
+}
+
+.env-card{
+  position:absolute;
+  left:6%; right:6%;
+  bottom:6%;
+  height:92%;
+  border-radius:5px;
+  background:linear-gradient(160deg,#161020 0%,#0d0913 60%,#12101c 100%);
+  box-shadow:inset 0 0 0 1px rgba(201,162,90,.45), 0 -8px 30px rgba(0,0,0,.6);
+  transform:translate3d(0,0,10px);
+  transform-origin:50% 100%;
+  z-index:2;
+  display:flex; align-items:flex-start; justify-content:center;
+  padding-top:12%;
+}
+.env-card-face{
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  opacity:0;
+}
+.card-rule{ width:70px; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+.card-mini{
+  font-family:var(--f-display);
+  font-size:15px; letter-spacing:.14em; color:var(--gold-soft);
+}
+
+.env-front{
+  position:absolute;
+  inset:auto 0 0 0;
+  height:60%;
+  border-radius:0 0 8px 8px;
+  background:linear-gradient(175deg,#221a2c 0%,#120d18 40%,#1c1526 100%);
+  box-shadow:inset 0 1px 0 rgba(246,231,193,.14),
+             inset 0 0 0 1px rgba(201,162,90,.3),
+             0 26px 50px rgba(0,0,0,.7);
+  z-index:4;
+  overflow:hidden;
+  transform:translate3d(0,0,30px);
+}
+.env-sheen{
+  position:absolute; inset:-40%;
+  background:linear-gradient(104deg,
+    rgba(246,231,193,0) 42%, rgba(246,231,193,.22) 50%, rgba(246,231,193,0) 58%);
+  transform:translate3d(-60%,0,0);
+  animation:sheenLoop 6.5s ease-in-out infinite;
+}
+@keyframes sheenLoop{
+  0%,72%{ transform:translate3d(-70%,0,0); }
+  100%{ transform:translate3d(70%,0,0); }
+}
+
+.env-side{
+  position:absolute; bottom:0;
+  width:56%; height:60%;
+  background:linear-gradient(160deg,#1d1526,#0f0b15);
+  z-index:5;
+  transform:translate3d(0,0,31px);
+}
+.env-side-r{ right:0; clip-path:polygon(100% 0,100% 100%,0 100%); box-shadow:inset 1px 0 0 rgba(201,162,90,.22); }
+.env-side-l{ left:0;  clip-path:polygon(0 0,100% 100%,0 100%);   box-shadow:inset -1px 0 0 rgba(201,162,90,.22); }
+
+.env-flap{
+  position:absolute;
+  top:0; left:0; right:0;
+  height:44%;
+  transform-origin:50% 0%;
+  transform:translate3d(0,0,32px) rotateX(0deg);
+  transform-style:preserve-3d;
+  z-index:6;
+  transition:transform 1.5s var(--ease2);
+}
+.flap-face{
+  position:absolute; inset:0;
+  background:linear-gradient(185deg,#241b2f 0%,#150f1d 70%);
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  box-shadow:inset 0 0 0 1px rgba(201,162,90,.3);
+}
+.flap-sheen{
+  position:absolute; inset:0;
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  background:linear-gradient(120deg, rgba(246,231,193,.16) 0%, rgba(246,231,193,0) 46%);
+}
+
+.seal{
+  position:absolute;
+  top:19%; left:50%;
+  width:23%; aspect-ratio:1;
+  transform:translate3d(-50%,-2%,40px);
+  z-index:7;
+  filter:drop-shadow(0 0 14px rgba(201,162,90,.45));
+  transition:opacity .5s ease, transform 1s var(--ease);
+}
+.seal svg{ width:100%; height:100%; }
+
+.env-name{
+  position:absolute;
+  left:0; right:0; bottom:12%;
+  z-index:8;
+  transform:translate3d(0,0,40px);
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  transition:opacity .6s ease;
+}
+.env-name-txt{
+  font-family:var(--f-display);
+  font-size:clamp(20px,6.4vw,28px);
+  background:linear-gradient(100deg,#8A6A2E,#F6E7C1 40%,#FFF6DE 50%,#C9A25A 70%,#8A6A2E);
+  background-size:250% 100%;
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+  animation:foilFlow 8s linear infinite;
+}
+.env-orn{ display:block; width:150px; opacity:.9; }
+.env-orn svg{ width:100%; height:auto; }
+
+.env-shadow{
+  position:absolute;
+  left:12%; right:12%; bottom:-9%;
+  height:26px;
+  background:radial-gradient(50% 50% at 50% 50%, rgba(0,0,0,.75) 0%, rgba(0,0,0,0) 72%);
+  filter:blur(6px);
+  animation:shadowPulse 8s ease-in-out infinite;
+}
+@keyframes shadowPulse{
+  0%,100%{ transform:scaleX(1); opacity:.85; }
+  50%{ transform:scaleX(.9); opacity:.6; }
+}
+
+.btn-open{
+  position:relative;
+  padding:15px 40px;
+  border-radius:999px;
+  overflow:hidden;
+  isolation:isolate;
+  opacity:0;
+  animation:fadeUp 1.4s 1.5s var(--ease) both;
+}
+.btn-open-bg{
+  position:absolute; inset:0;
+  border-radius:999px;
+  background:linear-gradient(150deg, rgba(201,162,90,.2), rgba(201,162,90,.05));
+  box-shadow:inset 0 0 0 1px rgba(230,203,146,.65), 0 10px 34px rgba(201,162,90,.18);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+}
+.btn-open-sweep{
+  position:absolute; inset:0;
+  border-radius:999px;
+  background:linear-gradient(100deg, rgba(246,231,193,0) 40%, rgba(246,231,193,.4) 50%, rgba(246,231,193,0) 60%);
+  transform:translate3d(-100%,0,0);
+  animation:btnSweep 3.6s ease-in-out infinite;
+}
+@keyframes btnSweep{
+  0%,60%{ transform:translate3d(-100%,0,0); }
+  100%{ transform:translate3d(100%,0,0); }
+}
+.btn-open-txt{
+  position:relative; z-index:2;
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:18px; letter-spacing:.06em;
+  color:#FBF3DF;
+}
+.btn-open:active{ transform:scale(.97); }
+
+.intro-hint{
+  font-size:12.5px; letter-spacing:.14em;
+  color:rgba(230,203,146,.6);
+  opacity:0;
+  animation:fadeUp 1.4s 2s var(--ease) both;
+}
+
+@keyframes fadeUp{
+  0%{ opacity:0; transform:translate3d(0,14px,0); }
+  100%{ opacity:1; transform:none; }
+}
+
+/* ---- حركة الفتح ---- */
+.intro.opening .env-flap{ transform:translate3d(0,0,32px) rotateX(-172deg); }
+.intro.opening .seal{ opacity:0; transform:translate3d(-50%,-40%,60px) scale(.6) rotate(14deg); }
+.intro.opening .env-name{ opacity:0; }
+.intro.opening .env-card{ animation:cardOut 2.5s .75s var(--ease) forwards; }
+@keyframes cardOut{
+  0%{   transform:translate3d(0,0,10px) scale(1); }
+  34%{  transform:translate3d(0,-62%,60px) scale(1.02); }
+  60%{  transform:translate3d(0,-70%,120px) scale(1.35); }
+  100%{ transform:translate3d(0,-58%,200px) scale(2.1); opacity:0; }
+}
+.intro.opening .env-card-face{ animation:fadeUp .8s .9s var(--ease) both; }
+.intro.opening .env-wrap{ animation:envPush 1.9s .9s var(--ease) both; }
+@keyframes envPush{
+  0%{ transform:none; }
+  60%{ transform:translate3d(0,10%,0) scale(1.02); }
+  100%{ transform:translate3d(0,26%,0) scale(1.12); opacity:0; }
+}
+.intro.opening .btn-open,
+.intro.opening .intro-hint,
+.intro.opening .intro-eyebrow{ animation:fadeOutFast .5s var(--ease) forwards; }
+@keyframes fadeOutFast{ to{ opacity:0; transform:translate3d(0,-10px,0); } }
+
+.intro.gone{ animation:introGone 1s var(--ease) forwards; }
+@keyframes introGone{
+  0%{ opacity:1; }
+  100%{ opacity:0; visibility:hidden; }
+}
+
+/* =====================================================================
+   الصفحة المتصلة
+   ===================================================================== */
+.page{
+  position:relative;
+  z-index:1;
+  opacity:0;
+  transition:opacity 1.2s var(--ease);
+}
+.page.live{ opacity:1; }
+
+.sec{
+  position:relative;
+  min-height:100svh;
+  width:100%;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:clamp(64px,12svh,120px) var(--pad);
+}
+.sec-in{
+  position:relative;
+  width:100%;
+  max-width:440px;
+  display:flex; flex-direction:column; align-items:center;
+  text-align:center;
+  gap:clamp(12px,2.4vh,20px);
+}
+.sec-hero{ min-height:100svh; }
+.sec-finale{ min-height:96svh; }
+
+/* ---- Scroll Reveal ---- */
+.rv{
+  opacity:0;
+  transform:translate3d(0,26px,0);
+  filter:blur(3px);
+  transition:opacity 1.15s var(--ease) var(--d,0s),
+             transform 1.15s var(--ease) var(--d,0s),
+             filter 1.15s var(--ease) var(--d,0s);
+  will-change:transform,opacity;
+}
+.rv.in{
+  opacity:1;
+  transform:none;
+  filter:blur(0);
+}
+
+/* ============================ نصوص ============================ */
+.line-xs{
+  font-size:clamp(13.5px,3.8vw,16px);
+  letter-spacing:.06em;
+  color:rgba(242,235,221,.78);
+  line-height:2;
+}
+.line-sm{
+  font-size:clamp(16px,4.6vw,19px);
+  letter-spacing:.01em;
+  color:rgba(246,238,220,.95);
+  line-height:2;
+}
+.line-md{
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:clamp(23px,6.6vw,30px);
+  color:#F2E3B8;
+  line-height:1.75;
+}
+.micro{
+  font-family:var(--f-body);
+  font-weight:600;
+  font-size:clamp(11.5px,3.2vw,13px);
+  letter-spacing:.3em;
+  color:rgba(214,178,108,.92);
+}
+.sec-title{
+  font-family:var(--f-display);
+  font-size:clamp(26px,8vw,36px);
+  line-height:1.7;
+}
+.orn-div{ display:block; width:min(72vw,240px); }
+.orn-div svg{ width:100%; height:auto; }
+.orn-top{ display:block; width:min(38vw,130px); opacity:.9; }
+.orn-top svg{ width:100%; height:auto; }
+
+.frame-gold{
+  position:relative;
+  width:100%;
+  padding:clamp(30px,7vw,44px) clamp(20px,5vw,30px);
+  display:flex; flex-direction:column; align-items:center;
+  gap:clamp(10px,2vh,16px);
+  background:linear-gradient(165deg, rgba(23,17,28,.5), rgba(5,4,6,.2));
+}
+.frame-gold::before,
+.frame-gold::after{
+  content:"";
+  position:absolute;
+  left:0; right:0;
+  height:26px;
+  pointer-events:none;
+}
+.frame-gold::before{
+  top:0;
+  border-top:1px solid rgba(201,162,90,.6);
+  border-left:1px solid rgba(201,162,90,.6);
+  border-right:1px solid rgba(201,162,90,.6);
+  box-shadow:inset 0 1px 0 rgba(246,231,193,.26);
+}
+.frame-gold::after{
+  bottom:0;
+  border-bottom:1px solid rgba(201,162,90,.6);
+  border-left:1px solid rgba(201,162,90,.6);
+  border-right:1px solid rgba(201,162,90,.6);
+  box-shadow:inset 0 -1px 0 rgba(246,231,193,.26);
+}
+
+/* ============================ اسم العريس ============================ */
+.name-hero{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  padding:clamp(14px,4vw,22px) 0;
+  display:flex; align-items:center; justify-content:center;
+}
+.name-beam{
+  position:absolute;
+  left:50%; top:50%;
+  width:150%; height:150%;
+  transform:translate(-50%,-50%) scale(.4);
+  background:radial-gradient(40% 32% at 50% 50%,
+    rgba(246,231,193,.42) 0%, rgba(201,162,90,.14) 42%, rgba(0,0,0,0) 74%);
+  filter:blur(12px);
+  opacity:0;
+  transition:opacity 1.6s var(--ease) .3s, transform 2.2s var(--ease) .3s;
+}
+.name-hero.in .name-beam{ opacity:.9; transform:translate(-50%,-50%) scale(1); }
+
+.groom-name{
+  position:relative;
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:clamp(38px,13.5vw,64px);
+  line-height:1.5;
+  letter-spacing:.2em;
+  background:linear-gradient(100deg,
+    #6E5121 0%, #A8823C 14%, #E4CB92 30%, #FFF9E8 42%,
+    #F6E7C1 48%, #C9A25A 62%, #8A6A2E 78%, #C9A25A 100%);
+  background-size:300% 100%;
+  background-position:0% 50%;
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+  filter:drop-shadow(0 6px 26px rgba(201,162,90,.3));
+  transition:letter-spacing 2.2s var(--ease) .25s,
+             background-position 2.6s var(--ease) .25s;
+}
+.name-hero.in .groom-name{
+  letter-spacing:.01em;
+  background-position:150% 50%;
+}
+.name-foil{
+  position:absolute; inset:0;
+  background:linear-gradient(100deg,
+    rgba(246,231,193,0) 42%, rgba(255,255,255,.7) 50%, rgba(246,231,193,0) 58%);
+  mix-blend-mode:screen;
+  transform:translate3d(-130%,0,0);
+  opacity:0;
+  pointer-events:none;
+}
+.name-hero.in .name-foil{ animation:foilSweep 1.7s .9s var(--ease2) both; }
+@keyframes foilSweep{
+  0%{ transform:translate3d(-130%,0,0); opacity:0; }
+  22%{ opacity:1; }
+  100%{ transform:translate3d(130%,0,0); opacity:0; }
+}
+
+/* ============================ مؤشر النزول ============================ */
+.scroll-cue{
+  position:absolute;
+  left:0; right:0;
+  bottom:calc(env(safe-area-inset-bottom) + 22px);
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  opacity:0;
+  transition:opacity .8s var(--ease);
+  pointer-events:none;
+}
+.scroll-cue.show{ opacity:1; }
+.cue-line{
+  width:1px; height:46px;
+  background:linear-gradient(180deg, rgba(201,162,90,0), rgba(246,231,193,.9));
+  transform-origin:top;
+  animation:cueDrop 2.4s ease-in-out infinite;
+}
+@keyframes cueDrop{
+  0%,100%{ transform:scaleY(.35); opacity:.4; }
+  50%{ transform:scaleY(1); opacity:1; }
+}
+.cue-txt{
+  font-size:11px; letter-spacing:.24em;
+  color:rgba(230,203,146,.7);
+}
+
+/* ============================ صورة العريس ============================ */
+.portrait{
+  position:relative;
+  width:min(76vw,300px);
+  aspect-ratio:1 / 1.26;
+  display:flex; align-items:center; justify-content:center;
+}
+.portrait-halo{
+  position:absolute; inset:-24%;
+  background:radial-gradient(50% 44% at 50% 46%,
+    rgba(201,162,90,.32) 0%, rgba(201,162,90,.07) 46%, rgba(0,0,0,0) 74%);
+  filter:blur(16px);
+  animation:glowPulse 9s ease-in-out infinite;
+}
+.portrait-frame{
+  position:relative;
+  width:100%; height:100%;
+  overflow:hidden;
+  border-radius:50% 50% 46% 46% / 42% 42% 54% 54%;
+  box-shadow:0 30px 70px rgba(0,0,0,.75);
+  background:linear-gradient(160deg,#161020,#0a070e);
+}
+/* الصورة 3:4 — الإطار محسوب على موضع الوجه: من فوق الرأس حتى الصدر */
+.portrait-frame img{
+  position:absolute;
+  top:0; left:50%;
+  width:auto;
+  height:325%;
+  max-width:none;
+  transform:translate(-51%,-11%);
+  transform-origin:51% 18.5%;
+  scale:1.01;
+  opacity:0;
+  filter:brightness(.2) saturate(.6) sepia(.12);
+  transition:opacity 2.2s var(--ease) .2s, filter 2.6s var(--ease) .2s;
+  animation:portraitZoom 26s ease-in-out infinite alternate;
+}
+.portrait.in .portrait-frame img{ opacity:1; filter:brightness(1.03) saturate(.6) sepia(.12) contrast(1.05); }
+@keyframes portraitZoom{
+  0%{ scale:1.01; }
+  100%{ scale:1.09; }
+}
+.portrait-fallback{
+  position:absolute; inset:0;
+  display:none; align-items:center; justify-content:center;
+}
+.portrait-fallback svg{ width:60%; height:60%; }
+.portrait.no-img .portrait-fallback{ display:flex; }
+.portrait.no-img img{ display:none; }
+
+.portrait-mask{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(58% 52% at 50% 32%, rgba(0,0,0,0) 24%, rgba(5,4,6,.62) 62%, rgba(5,4,6,1) 92%),
+    linear-gradient(180deg, rgba(5,4,6,.42) 0%, rgba(5,4,6,0) 22%, rgba(5,4,6,0) 56%, rgba(5,4,6,.92) 100%),
+    linear-gradient(96deg, rgba(5,4,6,.8) 0%, rgba(5,4,6,0) 26%, rgba(5,4,6,0) 74%, rgba(5,4,6,.78) 100%);
+}
+.portrait-sheen{
+  position:absolute; inset:-30%;
+  background:linear-gradient(104deg,
+    rgba(246,231,193,0) 44%, rgba(246,231,193,.18) 50%, rgba(246,231,193,0) 56%);
+  transform:translate3d(-70%,0,0);
+  animation:sheenLoop 9s ease-in-out infinite;
+  mix-blend-mode:screen;
+}
+.portrait-ring{
+  position:absolute; inset:-5%;
+  border-radius:50% 50% 46% 46% / 42% 42% 54% 54%;
+  border:1px solid rgba(201,162,90,.5);
+  box-shadow:0 0 22px rgba(201,162,90,.2), inset 0 0 22px rgba(201,162,90,.1);
+  opacity:0;
+  transform:scale(1.12);
+  transition:opacity 1.6s var(--ease) .5s, transform 1.8s var(--ease) .5s;
+  pointer-events:none;
+}
+.portrait.in .portrait-ring{ opacity:1; transform:none; }
+
+.portrait-name{
+  font-family:var(--f-display);
+  font-size:clamp(28px,9vw,40px);
+  line-height:1.6;
+}
+
+/* ============================ التفاصيل ============================ */
+.glass-card{
+  position:relative;
+  width:100%;
+  padding:20px 22px 18px;
+  display:flex; flex-direction:column; align-items:center; gap:4px;
+  background:linear-gradient(160deg, rgba(246,231,193,.085), rgba(255,255,255,.02));
+  border:1px solid rgba(201,162,90,.4);
+  border-radius:3px;
+  backdrop-filter:blur(9px) saturate(1.15);
+  -webkit-backdrop-filter:blur(9px) saturate(1.15);
+  box-shadow:0 16px 40px rgba(0,0,0,.5), inset 0 1px 0 rgba(246,231,193,.25);
+  overflow:hidden;
+}
+.glass-card::after{
+  content:"";
+  position:absolute; inset:-40%;
+  background:linear-gradient(102deg, rgba(246,231,193,0) 44%, rgba(246,231,193,.14) 50%, rgba(246,231,193,0) 56%);
+  transform:translate3d(-70%,0,0);
+  animation:sheenLoop 7s ease-in-out infinite;
+  pointer-events:none;
+}
+.gc-label{
+  font-family:var(--f-body);
+  font-weight:600;
+  font-size:11.5px;
+  letter-spacing:.34em;
+  color:rgba(214,178,108,.95);
+  padding-bottom:9px;
+  margin-bottom:3px;
+  border-bottom:1px solid rgba(201,162,90,.22);
+  width:56%;
+}
+.gc-value{
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:clamp(22px,6.4vw,28px);
+  color:#FBF3DF;
+  line-height:1.65;
+}
+.gc-num{
+  font-family:var(--f-num);
+  font-weight:600;
+  font-size:clamp(19px,5.4vw,23px);
+  letter-spacing:.1em;
+  color:#E7C583;
+  direction:ltr;
+  unicode-bidi:isolate;
+}
+.gc-num-ar{
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:clamp(18px,5.2vw,22px);
+  letter-spacing:0;
+  color:#E7C583;
+  direction:rtl;
+}
+
+.waze{
+  position:relative;
+  display:block;
+  width:100%;
+  margin-top:6px;
+  padding:16px 22px;
+  overflow:hidden;
+  isolation:isolate;
+  clip-path:polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px),
+                    calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px);
+}
+.waze-bg{
+  position:absolute; inset:0;
+  background:linear-gradient(150deg, rgba(201,162,90,.28) 0%, rgba(138,106,46,.16) 46%, rgba(201,162,90,.24) 100%);
+  box-shadow:inset 0 0 0 1px rgba(230,203,146,.7),
+             inset 0 1px 0 rgba(255,246,222,.4),
+             0 18px 44px rgba(201,162,90,.16);
+}
+.waze-sweep{
+  position:absolute; inset:-40%;
+  background:linear-gradient(100deg, rgba(255,246,222,0) 42%, rgba(255,246,222,.42) 50%, rgba(255,246,222,0) 58%);
+  transform:translate3d(-80%,0,0);
+  animation:sheenLoop 4.6s ease-in-out infinite;
+}
+.waze-in{
+  position:relative; z-index:2;
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  color:var(--champagne);
+}
+.waze-ico{ width:20px; height:20px; flex:none; }
+.waze-txt{ font-family:var(--f-display); font-size:16px; letter-spacing:.06em; }
+.waze:active{ transform:scale(.985); }
+
+/* ============================ الأبيات ============================ */
+.verse{
+  display:flex; flex-direction:column; align-items:center;
+  gap:clamp(8px,1.8vh,14px);
+  margin-top:6px;
+}
+.v-line{
+  position:relative;
+  overflow:hidden;
+  font-family:var(--f-display);
+  font-weight:500;
+  font-size:clamp(18px,5.4vw,24px);
+  line-height:2.05;
+  color:#FBF3DF;
+  filter:none;
+  transform:none;
+}
+.v-line.rv{ transform:none; filter:none; }
+.v-line.v-gap{ margin-top:clamp(10px,2.4vh,20px); }
+.v-line span{
+  display:inline-block;
+  transform:translate3d(0,108%,0);
+  transition:transform 1.25s var(--ease) var(--d,0s);
+}
+.v-line.in span{ transform:none; }
+.v-line::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(100deg, rgba(201,162,90,0) 0%, rgba(246,231,193,.8) 45%, rgba(201,162,90,0) 100%);
+  transform:translate3d(-110%,0,0);
+  mix-blend-mode:screen;
+  opacity:0;
+  pointer-events:none;
+}
+.v-line.in::after{ animation:verseFoil 1.5s calc(var(--d,0s) + .35s) var(--ease2) both; }
+@keyframes verseFoil{
+  0%{ transform:translate3d(-110%,0,0); opacity:.9; }
+  100%{ transform:translate3d(110%,0,0); opacity:0; }
+}
+
+/* ============================ العشاء ============================ */
+.dinner-panel{
+  position:relative;
+  width:100%;
+  padding:clamp(26px,7vw,40px) clamp(18px,5vw,26px);
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  border:1px solid rgba(201,162,90,.45);
+  background:linear-gradient(170deg, rgba(28,18,12,.62), rgba(8,5,8,.5));
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+  box-shadow:0 26px 60px rgba(0,0,0,.6), inset 0 0 0 6px rgba(201,162,90,.07);
+  overflow:hidden;
+}
+.dp-glow{
+  position:absolute; inset:auto -20% -60% -20%;
+  height:120%;
+  background:radial-gradient(50% 50% at 50% 100%, rgba(255,196,110,.2) 0%, rgba(0,0,0,0) 72%);
+  animation:flicker 6s ease-in-out infinite;
+}
+.dp-lead{
+  position:relative;
+  font-weight:600;
+  font-size:clamp(13px,3.6vw,15px);
+  letter-spacing:.24em;
+  color:rgba(214,178,108,.95);
+}
+.dp-title{
+  position:relative;
+  font-family:var(--f-display);
+  font-size:clamp(28px,9vw,40px);
+  line-height:1.7;
+}
+.dp-body{
+  position:relative;
+  font-size:clamp(15px,4.4vw,18px);
+  line-height:2.05;
+  color:rgba(251,243,223,.95);
+}
+
+/* ============================ العد التنازلي ============================ */
+.cd{
+  display:flex; align-items:stretch; justify-content:center;
+  gap:6px;
+  width:100%;
+  margin:4px 0 2px;
+}
+.cd-cell{
+  position:relative;
+  flex:1 1 0;
+  min-width:0;
+  padding:14px 4px 11px;
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  background:linear-gradient(165deg, rgba(246,231,193,.10), rgba(255,255,255,.015));
+  border:1px solid rgba(201,162,90,.42);
+  border-radius:2px;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  box-shadow:inset 0 1px 0 rgba(246,231,193,.3), 0 14px 34px rgba(0,0,0,.5);
+  overflow:hidden;
+}
+.cd-cell::after{
+  content:"";
+  position:absolute; inset:-40%;
+  background:linear-gradient(102deg, rgba(246,231,193,0) 44%, rgba(246,231,193,.16) 50%, rgba(246,231,193,0) 56%);
+  transform:translate3d(-70%,0,0);
+  animation:sheenLoop 8s ease-in-out infinite;
+}
+.cd-num{
+  position:relative;
+  font-family:var(--f-num);
+  font-weight:700;
+  font-size:clamp(26px,8.4vw,36px);
+  line-height:1.15;
+  direction:ltr;
+  background:linear-gradient(160deg,#FFF6DE,#C9A25A 55%,#7A5B25);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+}
+.cd-num.tick{ animation:tickPop .5s var(--ease); }
+@keyframes tickPop{
+  0%{ transform:translate3d(0,-38%,0); opacity:.15; }
+  100%{ transform:none; opacity:1; }
+}
+.cd-lbl{
+  position:relative;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.12em;
+  color:rgba(214,178,108,.95);
+}
+.cd-sep{
+  align-self:center;
+  width:1px; height:38px;
+  background:linear-gradient(180deg, transparent, rgba(201,162,90,.55), transparent);
+  flex:none;
+}
+.cd-done{
+  font-family:var(--f-display);
+  font-size:clamp(17px,5vw,22px);
+  color:var(--gold-soft);
+}
+
+/* ============================ كلمة من القلب ============================ */
+.wish-wrap{
+  position:relative;
+  width:100%;
+  margin-top:8px;
+  padding:clamp(20px,6vw,28px) clamp(16px,5vw,24px);
+  border:1px solid rgba(201,162,90,.38);
+  border-radius:3px;
+  background:linear-gradient(165deg, rgba(246,231,193,.07), rgba(255,255,255,.015));
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  box-shadow:0 22px 54px rgba(0,0,0,.55), inset 0 1px 0 rgba(246,231,193,.22);
+  overflow:hidden;
+}
+.wish-form{ display:flex; flex-direction:column; gap:16px; }
+.wish-form[hidden],
+.wish-done[hidden]{ display:none; }
+.field{ display:flex; flex-direction:column; gap:7px; text-align:right; }
+.f-label{
+  font-size:11.5px; font-weight:600; letter-spacing:.26em;
+  color:rgba(214,178,108,.95);
+}
+.f-input{
+  width:100%;
+  padding:13px 14px;
+  font-family:var(--f-body);
+  font-size:16px;
+  line-height:1.85;
+  color:#FBF3DF;
+  background:rgba(5,4,6,.5);
+  border:1px solid rgba(201,162,90,.32);
+  border-radius:2px;
+  outline:none;
+  transition:border-color .4s var(--ease), box-shadow .4s var(--ease), background .4s var(--ease);
+  -webkit-appearance:none;
+  appearance:none;
+}
+.f-input::placeholder{ color:rgba(230,203,146,.45); }
+.f-input:focus{
+  border-color:rgba(230,203,146,.75);
+  background:rgba(5,4,6,.7);
+  box-shadow:0 0 0 1px rgba(230,203,146,.28), 0 0 22px rgba(201,162,90,.14);
+}
+.f-input.err{ border-color:rgba(200,90,80,.75); }
+.f-area{ resize:none; min-height:132px; }
+
+.btn-send{
+  position:relative;
+  width:100%;
+  margin-top:2px;
+  padding:15px 20px;
+  overflow:hidden;
+  isolation:isolate;
+  clip-path:polygon(12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px),
+                    calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px), 0 12px);
+}
+.btn-send-bg{
+  position:absolute; inset:0;
+  background:linear-gradient(150deg, rgba(201,162,90,.3) 0%, rgba(138,106,46,.18) 48%, rgba(201,162,90,.26) 100%);
+  box-shadow:inset 0 0 0 1px rgba(230,203,146,.7), inset 0 1px 0 rgba(255,246,222,.38);
+}
+.btn-send-sweep{
+  position:absolute; inset:-40%;
+  background:linear-gradient(100deg, rgba(255,246,222,0) 42%, rgba(255,246,222,.4) 50%, rgba(255,246,222,0) 58%);
+  transform:translate3d(-80%,0,0);
+  animation:sheenLoop 5s ease-in-out infinite;
+}
+.btn-send-txt{
+  position:relative; z-index:2;
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:17px; letter-spacing:.06em;
+  color:#FBF3DF;
+}
+.btn-send:active{ transform:scale(.985); }
+.btn-send[disabled]{ opacity:.6; pointer-events:none; }
+
+.f-error{
+  font-size:12.5px;
+  line-height:1.9;
+  color:#E2A79B;
+  letter-spacing:.04em;
+}
+.f-error a{ color:var(--gold-soft); border-bottom:1px solid rgba(201,162,90,.5); }
+
+.wish-done{
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  padding:12px 0 6px;
+  text-align:center;
+}
+.done-mark{ display:block; width:62px; height:62px; }
+.done-mark svg{ width:100%; height:100%; }
+.done-mark .tick{
+  stroke-dasharray:44;
+  stroke-dashoffset:44;
+  animation:tickDraw 1s .25s var(--ease) forwards;
+}
+@keyframes tickDraw{ to{ stroke-dashoffset:0; } }
+.wish-done .done-1{
+  font-family:var(--f-display);
+  font-size:clamp(20px,6vw,26px);
+  line-height:1.8;
+  animation:fadeUp .9s .35s var(--ease) both;
+}
+.wish-done .done-2{
+  font-size:clamp(13px,3.8vw,15px);
+  letter-spacing:.14em;
+  color:rgba(230,203,146,.62);
+  animation:fadeUp .9s .55s var(--ease) both;
+}
+
+/* ============================ النهاية ============================ */
+.finale{
+  font-family:var(--f-display);
+  font-size:clamp(32px,11vw,48px);
+  line-height:1.7;
+}
+.finale-line{
+  font-family:var(--f-display);
+  font-weight:500;
+  font-size:clamp(17px,5vw,21px);
+  line-height:1.95;
+  color:rgba(251,243,223,.95);
+}
+
+/* ============================ زر الموسيقى ============================ */
+.music-btn{
+  position:fixed;
+  z-index:80;
+  top:calc(env(safe-area-inset-top) + 14px);
+  left:calc(env(safe-area-inset-left) + 14px);
+  width:42px; height:42px;
+  display:grid; place-items:center;
+  border-radius:50%;
+  border:1px solid rgba(201,162,90,.45);
+  background:rgba(8,6,10,.55);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  color:var(--gold-soft);
+  opacity:0;
+  animation:fadeUp .8s .3s var(--ease) forwards;
+}
+.music-btn[hidden]{ display:none; }
+.music-btn .ico{ width:19px; height:19px; fill:currentColor; }
+.music-btn .ico-off{ display:none; fill:none; stroke:currentColor; stroke-width:1.3; }
+.music-btn .ico-off path:not(.slash){ fill:currentColor; stroke:none; opacity:.55; }
+.music-btn.muted .ico-on{ display:none; }
+.music-btn.muted .ico-off{ display:block; }
+.music-ring{
+  position:absolute; inset:-4px;
+  border-radius:50%;
+  border:1px solid rgba(201,162,90,.28);
+  opacity:0;
+}
+.music-btn:not(.muted) .music-ring{ animation:ringPulse 2.6s ease-out infinite; }
+@keyframes ringPulse{
+  0%{ opacity:.7; transform:scale(.85); }
+  100%{ opacity:0; transform:scale(1.3); }
+}
+.music-btn:active{ transform:scale(.94); }
+
+/* ============================ شاشات أكبر ============================ */
+@media (min-width:760px){
+  .sec-in{ max-width:540px; }
+  .env-wrap{ width:400px; }
+  .line-sm{ font-size:18px; }
+  .groom-name{ font-size:74px; }
+}
+
+@media (max-height:660px){
+  .sec{ padding:56px var(--pad); }
+  .frame-gold{ padding:24px 18px; }
+  .portrait{ width:min(56vw,214px); }
+}
+
+/* ============================ تقليل الحركة ============================ */
+@media (prefers-reduced-motion:reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.2s !important;
+  }
+  .rv{ opacity:1 !important; transform:none !important; filter:none !important; }
+  .v-line span{ transform:none !important; }
+  .portrait-frame img{ opacity:1 !important; filter:none !important; }
+  .portrait-ring,.name-beam{ opacity:1 !important; transform:none !important; }
+  .groom-name{ letter-spacing:.02em !important; background-position:50% 50% !important; }
+  .intro-eyebrow,.btn-open,.intro-hint,.music-btn,.env-wrap,.env-card-face{ opacity:1 !important; }
+  .dust{ display:none; }
+}
+
+/* ============================ إرسال مخفي ============================ */
+#fsFrame{
+  position:absolute;
+  width:0; height:0;
+  border:0;
+  opacity:0;
+  pointer-events:none;
+}
+.f-honey{
+  position:absolute !important;
+  left:-9999px;
+  width:1px; height:1px;
+  opacity:0;
+  pointer-events:none;
+}
+
+/* =====================================================================
+   البطاقة التي تُفتح كالدعوة الحقيقية
+   ===================================================================== */
+.letter{
+  position:absolute;
+  top:50%; left:50%;
+  width:min(80vw,320px);
+  aspect-ratio:1 / 1.34;
+  transform:translate(-50%,-50%) scale(.86);
+  transform-style:preserve-3d;
+  perspective:1500px;
+  opacity:0;
+  pointer-events:none;
+  z-index:9;
+}
+.letter.show{
+  animation:letterRise 1.1s var(--ease) both;
+}
+@keyframes letterRise{
+  0%{ opacity:0; transform:translate(-50%,-38%) scale(.7) rotateX(24deg); }
+  100%{ opacity:1; transform:translate(-50%,-50%) scale(1) rotateX(0); }
+}
+.letter.zoom{
+  animation:letterZoom 1.15s var(--ease2) both;
+}
+@keyframes letterZoom{
+  0%{ opacity:1; transform:translate(-50%,-50%) scale(1); filter:blur(0); }
+  100%{ opacity:0; transform:translate(-50%,-50%) scale(3.4); filter:blur(6px); }
+}
+
+.letter-inner{
+  position:absolute; inset:0;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  gap:14px;
+  padding:26px 18px;
+  text-align:center;
+  background:linear-gradient(165deg,#171120 0%,#0b0810 55%,#141020 100%);
+  box-shadow:inset 0 0 0 1px rgba(201,162,90,.5),
+             inset 0 0 0 7px rgba(201,162,90,.08),
+             0 30px 70px rgba(0,0,0,.7);
+}
+.li-orn{ display:block; width:72%; opacity:.9; }
+.li-orn svg{ width:100%; height:auto; }
+.li-eyebrow{
+  font-size:12.5px;
+  letter-spacing:.18em;
+  color:rgba(230,203,146,.8);
+}
+.li-name{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:clamp(30px,9.5vw,40px);
+  line-height:1.5;
+  background:linear-gradient(100deg,#8A6A2E,#F6E7C1 38%,#FFF9E8 50%,#C9A25A 70%,#8A6A2E);
+  background-size:250% 100%;
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+  animation:foilFlow 7s linear infinite;
+}
+.li-sub{
+  font-family:var(--f-num);
+  font-weight:600;
+  font-size:16px;
+  letter-spacing:.16em;
+  direction:ltr;
+  color:rgba(231,197,131,.95);
+}
+
+.letter-cover{
+  position:absolute; inset:0;
+  transform-origin:0% 50%;
+  transform:rotateY(0deg);
+  transform-style:preserve-3d;
+  transition:transform 1.5s var(--ease2);
+  z-index:2;
+}
+.letter.open .letter-cover{ transform:rotateY(-166deg); }
+
+.lc-face,.lc-back{
+  position:absolute; inset:0;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+}
+.lc-face{
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  gap:16px;
+  background:
+    linear-gradient(150deg, rgba(246,231,193,.06), rgba(246,231,193,0) 42%),
+    linear-gradient(170deg,#221a2e 0%,#120d18 52%,#1d1626 100%);
+  box-shadow:inset 0 0 0 1px rgba(201,162,90,.55),
+             inset 0 0 0 8px rgba(201,162,90,.07),
+             0 26px 60px rgba(0,0,0,.65);
+}
+.lc-txt{
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:clamp(22px,6.8vw,28px);
+  letter-spacing:.16em;
+  background:linear-gradient(100deg,#8A6A2E,#F6E7C1 40%,#FFF9E8 50%,#C9A25A 70%,#8A6A2E);
+  background-size:250% 100%;
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+  animation:foilFlow 8s linear infinite;
+}
+.lc-orn{ display:block; width:70%; opacity:.9; }
+.lc-orn svg{ width:100%; height:auto; }
+.lc-back{
+  transform:rotateY(180deg);
+  background:linear-gradient(170deg,#0f0b15,#080610);
+  box-shadow:inset 0 0 0 1px rgba(201,162,90,.3);
+}
+
+@media (prefers-reduced-motion:reduce){
+  .letter.show{ animation:none; opacity:1; }
+  .letter.open .letter-cover{ transform:rotateY(-166deg); transition:none; }
+  .letter.zoom{ animation:none; opacity:0; }
+}
+
+/* ============================ البسملة والعنوان ============================ */
+.basmala{
+  font-size:clamp(12.5px,3.5vw,15px);
+  letter-spacing:.1em;
+  color:rgba(230,203,146,.8);
+  line-height:1.9;
+}
+.hero-title{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:clamp(26px,7.6vw,34px);
+  letter-spacing:.14em;
+  line-height:1.7;
+}
+.li-title{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:clamp(21px,6.4vw,26px);
+  letter-spacing:.14em;
+  background:linear-gradient(100deg,#8A6A2E,#F6E7C1 40%,#FFF9E8 50%,#C9A25A 70%,#8A6A2E);
+  background-size:250% 100%;
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+  animation:foilFlow 8s linear infinite;
+}
+.letter-inner{ gap:16px; padding:30px 20px; }
+.li-ayah{
+  font-family:'Amiri','El Messiri',serif;
+  font-size:clamp(16px,4.6vw,19px);
+  line-height:2.1;
+  color:#F7EFDB;
+  text-shadow:0 0 20px rgba(201,162,90,.2);
+}
+.letter{ aspect-ratio:1 / 1.4; }
+
+/* ============================ الآية الكريمة ============================ */
+.ayah-wrap{
+  position:relative;
+  width:100%;
+  padding:14px 6px 12px;
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+}
+.ayah-wrap::before,
+.ayah-wrap::after{
+  content:"";
+  position:absolute;
+  left:14%; right:14%;
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(201,162,90,.55), transparent);
+}
+.ayah-wrap::before{ top:0; }
+.ayah-wrap::after{ bottom:0; }
+.ayah{
+  font-family:'Amiri','El Messiri',serif;
+  font-size:clamp(16.5px,4.8vw,20px);
+  line-height:2.15;
+  color:#F7EFDB;
+  text-shadow:0 0 18px rgba(201,162,90,.18);
+}
+.ayah-br{
+  color:#D9B26C;
+  font-size:1.15em;
+  padding:0 2px;
+}
+.ayah-src{
+  font-family:var(--f-body);
+  font-weight:600;
+  font-size:11.5px;
+  letter-spacing:.2em;
+  color:rgba(214,178,108,.9);
+}
+
+/* =====================================================================
+   الشاشة الافتتاحية — لمسات فخامة إضافية
+   ===================================================================== */
+.intro-frame{
+  position:absolute;
+  inset:calc(env(safe-area-inset-top) + 16px) 16px calc(env(safe-area-inset-bottom) + 16px) 16px;
+  border:1px solid rgba(201,162,90,.28);
+  pointer-events:none;
+  z-index:3;
+  opacity:0;
+  animation:fadeUp 1.6s .25s var(--ease) both;
+}
+.intro-frame::before{
+  content:"";
+  position:absolute; inset:7px;
+  border:1px solid rgba(201,162,90,.14);
+}
+.intro-frame .c{
+  position:absolute;
+  width:24px; height:24px;
+  border:1px solid rgba(230,203,146,.85);
+  box-shadow:0 0 12px rgba(201,162,90,.35);
+}
+.intro-frame .c-tr{ top:-1px; right:-1px; border-left:0; border-bottom:0; }
+.intro-frame .c-tl{ top:-1px; left:-1px;  border-right:0; border-bottom:0; }
+.intro-frame .c-br{ bottom:-1px; right:-1px; border-left:0; border-top:0; }
+.intro-frame .c-bl{ bottom:-1px; left:-1px;  border-right:0; border-top:0; }
+
+/* الظرف: حواف ذهبية أوضح وخامة أعمق */
+.env-front{
+  background:
+    linear-gradient(155deg, rgba(246,231,193,.07) 0%, rgba(246,231,193,0) 38%),
+    linear-gradient(175deg,#241c30 0%,#100c17 45%,#1f1829 100%);
+  box-shadow:inset 0 1px 0 rgba(246,231,193,.3),
+             inset 0 0 0 1px rgba(201,162,90,.55),
+             inset 0 0 26px rgba(0,0,0,.55),
+             0 30px 60px rgba(0,0,0,.75);
+}
+.env-back{ box-shadow:inset 0 0 0 1px rgba(201,162,90,.5); }
+.flap-face{ box-shadow:inset 0 0 0 1px rgba(201,162,90,.5); }
+.env-side-r{ box-shadow:inset 1px 0 0 rgba(201,162,90,.4); }
+.env-side-l{ box-shadow:inset -1px 0 0 rgba(201,162,90,.4); }
+
+.seal{ width:25%; filter:drop-shadow(0 0 18px rgba(201,162,90,.6)); }
+
+.env-name{ bottom:11%; gap:5px; }
+.env-name-txt{
+  font-weight:700;
+  font-size:clamp(24px,7.4vw,32px);
+  letter-spacing:.1em;
+  filter:drop-shadow(0 2px 16px rgba(201,162,90,.5));
+}
+.env-sub{
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:clamp(13px,3.8vw,16px);
+  letter-spacing:.2em;
+  color:rgba(246,238,220,.9);
+}
+.env-orn{ width:135px; }
+
+/* ميل تفاعلي للظرف */
+@keyframes envFloat{
+  0%,100%{ transform:translate3d(0,0,0)
+           rotateX(calc(4deg + var(--ty,0deg)))
+           rotateY(var(--tx,0deg)) rotateZ(-.4deg); }
+  50%{ transform:translate3d(0,-8px,0)
+       rotateX(calc(1deg + var(--ty,0deg)))
+       rotateY(var(--tx,0deg)) rotateZ(.5deg); }
+}
+
+/* الشرر والمفرقعات */
+.sparks{
+  position:absolute; inset:0;
+  z-index:12;
+  pointer-events:none;
+  overflow:hidden;
+}
+.spark{
+  position:absolute;
+  width:5px; height:5px;
+  margin:-2.5px 0 0 -2.5px;
+  border-radius:50%;
+  background:radial-gradient(circle, #FFF8E4 0%, #E9CB8B 45%, rgba(201,162,90,0) 72%);
+  box-shadow:0 0 10px rgba(246,231,193,.75);
+  will-change:transform,opacity;
+  animation:sparkFly var(--dur,900ms) cubic-bezier(.12,.7,.3,1) forwards;
+}
+@keyframes sparkFly{
+  0%{   transform:translate3d(0,0,0) scale(var(--s0,1)); opacity:1; }
+  70%{  opacity:.85; }
+  100%{ transform:translate3d(var(--tx2,0px),var(--ty2,0px),0) scale(.15); opacity:0; }
+}
+.spark.trail{
+  width:3px; height:3px;
+  background:radial-gradient(circle, #FFFDF3 0%, #C9A25A 55%, rgba(201,162,90,0) 75%);
+}
+
+@media (prefers-reduced-motion:reduce){
+  .sparks{ display:none; }
+}
+
+/* =====================================================================
+   الشاشة الافتتاحية — النسخة النهائية: ظرف أكبر، خامة سوداء دافئة،
+   بطانة ذهبية، زخارف عربية، وحركة هادئة فقط
+   ===================================================================== */
+.intro-frame{
+  inset:calc(env(safe-area-inset-top) + 14px) 14px calc(env(safe-area-inset-bottom) + 14px) 14px;
+  border-color:rgba(201,162,90,.16);
+}
+.intro-frame::before{ border-color:rgba(201,162,90,.07); }
+.intro-frame .c{
+  width:18px; height:18px;
+  border-color:rgba(201,162,90,.55);
+  box-shadow:none;
+}
+
+.env-wrap{
+  width:min(93vw,420px);
+  aspect-ratio:1 / .66;
+}
+
+/* جسم الظرف: أسود دافئ بلا أي ميل بنفسجي */
+.env-back{
+  background:linear-gradient(150deg,#171310 0%,#0B0908 55%,#151210 100%);
+  box-shadow:inset 0 0 0 1px rgba(201,162,90,.42);
+}
+.env-front{
+  background:
+    linear-gradient(158deg, rgba(246,231,193,.055) 0%, rgba(246,231,193,0) 40%),
+    repeating-linear-gradient(96deg, rgba(255,255,255,.018) 0 1px, rgba(0,0,0,0) 1px 14px),
+    linear-gradient(175deg,#1B1713 0%,#0D0B09 46%,#191512 100%);
+  box-shadow:inset 0 1px 0 rgba(246,231,193,.22),
+             inset 0 0 0 1px rgba(201,162,90,.6),
+             inset 0 0 30px rgba(0,0,0,.6),
+             0 34px 64px rgba(0,0,0,.8);
+}
+.env-side{
+  background:linear-gradient(160deg,#1A1613,#0C0A08);
+}
+.env-side-r{ box-shadow:inset 1px 0 0 rgba(201,162,90,.45); }
+.env-side-l{ box-shadow:inset -1px 0 0 rgba(201,162,90,.45); }
+
+/* الغطاء: وجه أسود وبطانة ذهبية تظهر عند الفتح */
+.flap-face{
+  background:linear-gradient(185deg,#1F1A15 0%,#100D0B 72%);
+  box-shadow:inset 0 0 0 1px rgba(201,162,90,.55);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+}
+.flap-liner{
+  position:absolute; inset:0;
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  transform:rotateX(180deg);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  background:
+    repeating-linear-gradient(102deg, rgba(0,0,0,.10) 0 1px, rgba(0,0,0,0) 1px 9px),
+    linear-gradient(170deg,#E7CD94 0%,#C9A25A 42%,#8A6A2E 100%);
+}
+.flap-sheen{ display:none; }
+
+/* زخارف عربية على الظرف */
+.arab{
+  position:absolute;
+  width:15%;
+  aspect-ratio:1;
+  opacity:.75;
+  pointer-events:none;
+}
+.arab svg{ width:100%; height:100%; }
+.arab-br{ bottom:7%; right:5%; transform:scaleX(-1); }
+.arab-bl{ bottom:7%; left:5%; }
+
+/* الختم */
+.seal{
+  top:17%;
+  width:24%;
+  filter:drop-shadow(0 0 16px rgba(201,162,90,.5));
+}
+
+/* الكتابة على الظرف */
+.env-name{ bottom:13%; gap:7px; }
+.env-name-txt{
+  font-weight:700;
+  font-size:clamp(26px,8vw,34px);
+  letter-spacing:.12em;
+  filter:drop-shadow(0 2px 14px rgba(201,162,90,.4));
+}
+.env-orn{ width:150px; }
+
+.env-shadow{ bottom:-8%; height:30px; }
+
+/* حركة هادئة: طفو خفيف فقط، بلا ميل ولا شرر */
+@keyframes envFloat{
+  0%,100%{ transform:translate3d(0,0,0) rotateX(3deg) rotateZ(-.3deg); }
+  50%{ transform:translate3d(0,-6px,0) rotateX(1deg) rotateZ(.3deg); }
+}
+.env-sheen{ animation:sheenLoop 9s ease-in-out infinite; }
+
+/* الزخارف العربية فوق طبقات الظرف */
+.arab{
+  transform:translate3d(0,0,41px);
+  z-index:9;
+  opacity:.8;
+}
+.arab-br{ transform:translate3d(0,0,41px) scaleX(-1); }
+
+/* البطاقة داخل الظرف: ورق داكن دافئ بحافة ذهبية */
+.env-card{
+  background:linear-gradient(165deg,#1C1814 0%,#100D0B 58%,#191512 100%);
+  box-shadow:inset 0 0 0 1px rgba(201,162,90,.55),
+             inset 0 0 0 5px rgba(201,162,90,.06),
+             0 -8px 30px rgba(0,0,0,.7);
+}
+
+.arab{ width:11%; bottom:6%; opacity:.85; }
+.arab-bl{ left:6%;  right:auto; transform:translate3d(0,0,41px) rotate(-90deg); }
+.arab-br{ right:6%; left:auto;  transform:translate3d(0,0,41px) rotate(180deg); }
+
+.env-wrap{ width:min(84vw,360px); }
+
+/* ضيف الحفل */
+.dp-div{ position:relative; display:block; width:80%; margin:4px auto 0; opacity:.9; }
+.dp-div svg{ width:100%; height:auto; }
+.dp-guest{
+  position:relative;
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:clamp(21px,6.2vw,27px);
+  line-height:1.7;
+  color:#FBF3DF;
+  text-shadow:0 0 22px rgba(201,162,90,.28);
+}
+
+/* البطاقة: خامة سوداء دافئة مثل الظرف */
+.letter-inner{
+  background:linear-gradient(165deg,#1B1713 0%,#0C0A08 56%,#181411 100%);
+  box-shadow:inset 0 0 0 1px rgba(201,162,90,.55),
+             inset 0 0 0 7px rgba(201,162,90,.07),
+             0 32px 72px rgba(0,0,0,.78);
+}
+.lc-face{
+  background:
+    linear-gradient(150deg, rgba(246,231,193,.055), rgba(246,231,193,0) 42%),
+    linear-gradient(172deg,#201B16 0%,#100D0B 54%,#1C1713 100%);
+  box-shadow:inset 0 0 0 1px rgba(201,162,90,.6),
+             inset 0 0 0 8px rgba(201,162,90,.07),
+             0 28px 64px rgba(0,0,0,.7);
+}
+.lc-back{ background:linear-gradient(170deg,#0E0B09,#070605); }
