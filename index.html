@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#F7F0E2" />
+<title>دعوة زفاف · محمد زياد</title>
+
+<meta name="description" content="دعوة زفاف محمد زياد — الخميس 27.08.2026 — منتجع الواحة، أم الفحم" />
+<meta property="og:title" content="دعوة زفاف · محمد زياد" />
+<meta property="og:description" content="الخميس 27.08.2026 — الساعة السابعة مساءً — منتجع الواحة، أم الفحم" />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=El+Messiri:wght@500;600;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="locked">
+
+<noscript>
+  <div class="nojs">
+    <p class="nojs-b">بسم الله الرحمن الرحيم</p>
+    <h1 class="nojs-t">دعوة زفاف</h1>
+    <p>أبناء المرحوم جميل الشيخ حسن وأقاربهم يتشرفون بدعوة حضرتكم لحضور حفل زفاف ولدهم الغالي</p>
+    <h2 class="nojs-n">محمد زياد</h2>
+    <p>الخميس 27.08.2026 — الساعة السابعة مساءً</p>
+    <p>منتجع الواحة – أم الفحم</p>
+    <p><a class="nojs-a" href="https://waze.com/ul/hsvbcpfxub">الموقع عبر Waze</a></p>
+    <p>ولتَناول طعام العشاء على مائدة والد العريس · ويُحيي الحفل المنشد أحمد خالد</p>
+  </div>
+</noscript>
+
+
+<!-- ===================== الموسيقى ===================== -->
+<audio id="bgm" src="wedding.mp3" loop preload="auto" playsinline></audio>
+
+<button id="musicBtn" class="music-btn" type="button" aria-label="تشغيل أو إيقاف الموسيقى" hidden>
+  <span class="music-ring"></span>
+  <svg class="ico ico-on" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12.5 3.2v11.1a3.1 3.1 0 1 1-1.6-2.7V6.6l-4.6 1.2v7.9a3.1 3.1 0 1 1-1.6-2.7V6.6z"/>
+  </svg>
+  <svg class="ico ico-off" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12.5 3.2v11.1a3.1 3.1 0 1 1-1.6-2.7V6.6l-4.6 1.2v7.9a3.1 3.1 0 1 1-1.6-2.7V6.6z"/>
+    <path class="slash" d="M3.4 3.4 20.6 20.6" />
+  </svg>
+</button>
+
+<!-- ===================== شريط تقدّم ذهبي ===================== -->
+<div class="progress" id="progress" aria-hidden="true"><span></span></div>
+
+<!-- ===================== الخلفيات السينمائية الثابتة ===================== -->
+<div class="backdrop" id="backdrop" aria-hidden="true">
+  <div class="theme th-1 on"><span class="lyr satin"></span><span class="lyr rays"></span><span class="lyr glow-core"></span></div>
+  <div class="theme th-2"><span class="lyr deep-warm"></span><span class="lyr spot"></span></div>
+  <div class="theme th-3"><span class="lyr satin satin-tight"></span><span class="lyr chandelier"></span></div>
+  <div class="theme th-4"><span class="lyr rose-field"></span></div>
+  <div class="theme th-5"><span class="lyr candles"></span></div>
+  <div class="theme th-6"><span class="lyr crystal"></span></div>
+  <span class="lyr bokeh par" data-par="-16"></span>
+  <span class="lyr smoke smoke-a par" data-par="-30"></span>
+  <span class="lyr smoke smoke-b par" data-par="-46"></span>
+  <span class="lyr vignette"></span>
+</div>
+
+<!-- ===================== الغبار الذهبي ===================== -->
+<div class="dust" id="dust" aria-hidden="true"></div>
+
+
+<!-- ===================================================================
+     الشاشة الافتتاحية — الظرف
+==================================================================== -->
+<section class="intro" id="intro">
+  <div class="intro-bg" aria-hidden="true">
+    <span class="lyr satin"></span>
+    <span class="mandala mandala-a"><svg viewBox="0 0 600 600" aria-hidden="true"><g fill="none" stroke="#B08B3C" stroke-width="1.1"><path d="M370.0 300.0 L550.0 300.0"/><path d="M420.0 300.0 Q506.0 341.0 410.9 345.9"/><path d="M364.7 326.8 L531.0 395.7"/><path d="M410.9 345.9 Q474.6 416.7 384.9 384.9"/><path d="M349.5 349.5 L476.8 476.8"/><path d="M384.9 384.9 Q416.7 474.6 345.9 410.9"/><path d="M326.8 364.7 L395.7 531.0"/><path d="M345.9 410.9 Q341.0 506.0 300.0 420.0"/><path d="M300.0 370.0 L300.0 550.0"/><path d="M300.0 420.0 Q259.0 506.0 254.1 410.9"/><path d="M273.2 364.7 L204.3 531.0"/><path d="M254.1 410.9 Q183.3 474.6 215.1 384.9"/><path d="M250.5 349.5 L123.2 476.8"/><path d="M215.1 384.9 Q125.4 416.7 189.1 345.9"/><path d="M235.3 326.8 L69.0 395.7"/><path d="M189.1 345.9 Q94.0 341.0 180.0 300.0"/><path d="M230.0 300.0 L50.0 300.0"/><path d="M180.0 300.0 Q94.0 259.0 189.1 254.1"/><path d="M235.3 273.2 L69.0 204.3"/><path d="M189.1 254.1 Q125.4 183.3 215.1 215.1"/><path d="M250.5 250.5 L123.2 123.2"/><path d="M215.1 215.1 Q183.3 125.4 254.1 189.1"/><path d="M273.2 235.3 L204.3 69.0"/><path d="M254.1 189.1 Q259.0 94.0 300.0 180.0"/><path d="M300.0 230.0 L300.0 50.0"/><path d="M300.0 180.0 Q341.0 94.0 345.9 189.1"/><path d="M326.8 235.3 L395.7 69.0"/><path d="M345.9 189.1 Q416.7 125.4 384.9 215.1"/><path d="M349.5 250.5 L476.8 123.2"/><path d="M384.9 215.1 Q474.6 183.3 410.9 254.1"/><path d="M364.7 273.2 L531.0 204.3"/><path d="M410.9 254.1 Q506.0 259.0 420.0 300.0"/><circle cx="485.0" cy="300.0" r="14"/><circle cx="430.8" cy="430.8" r="14"/><circle cx="300.0" cy="485.0" r="14"/><circle cx="169.2" cy="430.8" r="14"/><circle cx="115.0" cy="300.0" r="14"/><circle cx="169.2" cy="169.2" r="14"/><circle cx="300.0" cy="115.0" r="14"/><circle cx="430.8" cy="169.2" r="14"/><circle cx="300" cy="300" r="70"/><circle cx="300" cy="300" r="120"/><circle cx="300" cy="300" r="250"/><circle cx="300" cy="300" r="262"/></g></svg></span>
+    <span class="mandala mandala-b"><svg viewBox="0 0 600 600" aria-hidden="true"><g fill="none" stroke="#B08B3C" stroke-width="1.1"><path d="M370.0 300.0 L550.0 300.0"/><path d="M420.0 300.0 Q506.0 341.0 410.9 345.9"/><path d="M364.7 326.8 L531.0 395.7"/><path d="M410.9 345.9 Q474.6 416.7 384.9 384.9"/><path d="M349.5 349.5 L476.8 476.8"/><path d="M384.9 384.9 Q416.7 474.6 345.9 410.9"/><path d="M326.8 364.7 L395.7 531.0"/><path d="M345.9 410.9 Q341.0 506.0 300.0 420.0"/><path d="M300.0 370.0 L300.0 550.0"/><path d="M300.0 420.0 Q259.0 506.0 254.1 410.9"/><path d="M273.2 364.7 L204.3 531.0"/><path d="M254.1 410.9 Q183.3 474.6 215.1 384.9"/><path d="M250.5 349.5 L123.2 476.8"/><path d="M215.1 384.9 Q125.4 416.7 189.1 345.9"/><path d="M235.3 326.8 L69.0 395.7"/><path d="M189.1 345.9 Q94.0 341.0 180.0 300.0"/><path d="M230.0 300.0 L50.0 300.0"/><path d="M180.0 300.0 Q94.0 259.0 189.1 254.1"/><path d="M235.3 273.2 L69.0 204.3"/><path d="M189.1 254.1 Q125.4 183.3 215.1 215.1"/><path d="M250.5 250.5 L123.2 123.2"/><path d="M215.1 215.1 Q183.3 125.4 254.1 189.1"/><path d="M273.2 235.3 L204.3 69.0"/><path d="M254.1 189.1 Q259.0 94.0 300.0 180.0"/><path d="M300.0 230.0 L300.0 50.0"/><path d="M300.0 180.0 Q341.0 94.0 345.9 189.1"/><path d="M326.8 235.3 L395.7 69.0"/><path d="M345.9 189.1 Q416.7 125.4 384.9 215.1"/><path d="M349.5 250.5 L476.8 123.2"/><path d="M384.9 215.1 Q474.6 183.3 410.9 254.1"/><path d="M364.7 273.2 L531.0 204.3"/><path d="M410.9 254.1 Q506.0 259.0 420.0 300.0"/><circle cx="485.0" cy="300.0" r="14"/><circle cx="430.8" cy="430.8" r="14"/><circle cx="300.0" cy="485.0" r="14"/><circle cx="169.2" cy="430.8" r="14"/><circle cx="115.0" cy="300.0" r="14"/><circle cx="169.2" cy="169.2" r="14"/><circle cx="300.0" cy="115.0" r="14"/><circle cx="430.8" cy="169.2" r="14"/><circle cx="300" cy="300" r="70"/><circle cx="300" cy="300" r="120"/><circle cx="300" cy="300" r="250"/><circle cx="300" cy="300" r="262"/></g></svg></span>
+    <span class="sprig sprig-t">
+      <svg viewBox="0 0 200 120"><g fill="none" stroke="#B08B3C" stroke-width="1.1" stroke-linecap="round">
+        <path d="M10 110C60 100 120 70 190 12"/>
+        <path d="M52 96c2-14 12-22 26-24-2 14-12 22-26 24z"/>
+        <path d="M78 84c0-14 9-23 23-26-1 14-10 23-23 26z"/>
+        <path d="M104 68c2-14 12-22 26-24-2 14-12 22-26 24z"/>
+        <path d="M130 50c2-14 12-22 26-24-2 14-12 22-26 24z"/>
+        <circle cx="176" cy="24" r="3"/><circle cx="150" cy="44" r="2.2"/>
+      </g></svg>
+    </span>
+    <span class="sprig sprig-b">
+      <svg viewBox="0 0 200 120"><g fill="none" stroke="#B08B3C" stroke-width="1.1" stroke-linecap="round">
+        <path d="M10 110C60 100 120 70 190 12"/>
+        <path d="M52 96c2-14 12-22 26-24-2 14-12 22-26 24z"/>
+        <path d="M78 84c0-14 9-23 23-26-1 14-10 23-23 26z"/>
+        <path d="M104 68c2-14 12-22 26-24-2 14-12 22-26 24z"/>
+        <path d="M130 50c2-14 12-22 26-24-2 14-12 22-26 24z"/>
+        <circle cx="176" cy="24" r="3"/><circle cx="150" cy="44" r="2.2"/>
+      </g></svg>
+    </span>
+    <span class="petals" id="petals"></span>
+    <span class="lyr glow-core"></span>
+    <span class="lyr smoke smoke-a"></span>
+    <span class="lyr vignette"></span>
+  </div>
+
+  <div class="intro-frame" aria-hidden="true">
+    <span class="c c-tr"></span><span class="c c-tl"></span>
+    <span class="c c-br"></span><span class="c c-bl"></span>
+  </div>
+
+  <div class="intro-inner">
+    <div class="env-wrap" id="envWrap">
+      <div class="envelope" id="envelope">
+        <div class="env-back" aria-hidden="true"></div>
+
+        <div class="env-card" id="envCard">
+          <div class="env-card-face">
+            <span class="card-rule"></span>
+            <span class="card-mini">دعوة زفاف</span>
+            <span class="card-rule"></span>
+          </div>
+        </div>
+
+        <div class="env-front" aria-hidden="true">
+          <span class="env-sheen"></span>
+        </div>
+
+        <div class="env-side env-side-r" aria-hidden="true"></div>
+        <div class="env-side env-side-l" aria-hidden="true"></div>
+
+        <div class="env-flap" id="envFlap">
+          <span class="flap-face">
+            <span class="flap-band"></span>
+        <div class="env-name">
+          <span class="env-name-txt">دعوة زفاف</span>
+          <span class="env-orn">
+            <svg viewBox="0 0 240 16" aria-hidden="true">
+              <path d="M4 8h78 M158 8h78" stroke="#C9A25A" stroke-width="1" fill="none"/>
+              <path d="M120 1c5 5 10 6 16 7-6 1-11 2-16 7-5-5-10-6-16-7 6-1 11-2 16-7z"
+                    fill="none" stroke="#EBD6A4" stroke-width="1"/>
+              <circle cx="90" cy="8" r="1.8" fill="#C9A25A"/>
+              <circle cx="150" cy="8" r="1.8" fill="#C9A25A"/>
+            </svg>
+          </span>
+        </div>
+          <span class="arab arab-br">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="#C9A25A" stroke-width="1.1" stroke-linecap="round">
+              <path d="M3 15V3h12"/>
+              <path d="M3 24C15 24 24 15 24 3" opacity=".55"/>
+              <circle cx="7.5" cy="7.5" r="1.7" fill="#C9A25A" stroke="none"/>
+            </g></svg>
+          </span>
+          <span class="arab arab-bl">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="#C9A25A" stroke-width="1.1" stroke-linecap="round">
+              <path d="M3 15V3h12"/>
+              <path d="M3 24C15 24 24 15 24 3" opacity=".55"/>
+              <circle cx="7.5" cy="7.5" r="1.7" fill="#C9A25A" stroke="none"/>
+            </g></svg>
+          </span>
+          </span>
+          <span class="flap-liner"></span>
+        </div>
+
+        <div class="seal" id="seal">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <defs>
+              <radialGradient id="waxG" cx="38%" cy="32%" r="72%">
+                <stop offset="0%"  stop-color="#FFF9E6"/>
+                <stop offset="26%" stop-color="#F2DEA8"/>
+                <stop offset="58%" stop-color="#DCBB70"/>
+                <stop offset="82%" stop-color="#C39F4D"/>
+                <stop offset="100%" stop-color="#A98432"/>
+              </radialGradient>
+              <linearGradient id="waxRim" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#F7EBC6"/>
+                <stop offset="55%" stop-color="#B98F3E"/>
+                <stop offset="100%" stop-color="#6E4F14"/>
+              </linearGradient>
+            </defs>
+            <path d="M 110.00 60.00 L 111.58 61.35 L 112.70 62.76 L 113.04 64.17 L 112.48 65.52 L 111.16 66.74 L 109.38 67.82 L 107.59 68.82 L 106.20 69.82 L 105.51 70.93 L 105.62 72.22 L 106.41 73.75 L 107.55 75.45 L 108.64 77.22 L 109.27 78.91 L 109.15 80.36 L 108.21 81.46 L 106.57 82.21 L 104.55 82.70 L 102.53 83.09 L 100.90 83.61 L 99.90 84.45 L 99.61 85.72 L 99.89 87.41 L 100.45 89.39 L 100.94 91.41 L 101.01 93.21 L 100.45 94.55 L 99.22 95.31 L 97.43 95.52 L 95.36 95.36 L 93.32 95.11 L 91.60 95.10 L 90.39 95.59 L 89.72 96.70 L 89.46 98.40 L 89.39 100.45 L 89.23 102.52 L 88.74 104.26 L 87.80 105.36 L 86.39 105.70 L 84.62 105.35 L 82.70 104.55 L 80.84 103.69 L 79.21 103.15 L 77.91 103.24 L 76.93 104.09 L 76.16 105.62 L 75.45 107.55 L 74.66 109.48 L 73.66 110.97 L 72.42 111.73 L 70.97 111.62 L 69.40 110.74 L 67.82 109.38 L 66.32 107.99 L 64.94 106.97 L 63.67 106.66 L 62.47 107.16 L 61.27 108.38 L 60.00 110.00 L 58.65 111.58 L 57.24 112.70 L 55.83 113.04 L 54.48 112.48 L 53.26 111.16 L 52.18 109.38 L 51.18 107.59 L 50.18 106.20 L 49.07 105.51 L 47.78 105.62 L 46.25 106.41 L 44.55 107.55 L 42.78 108.64 L 41.09 109.27 L 39.64 109.15 L 38.54 108.21 L 37.79 106.57 L 37.30 104.55 L 36.91 102.53 L 36.39 100.90 L 35.55 99.90 L 34.28 99.61 L 32.59 99.89 L 30.61 100.45 L 28.59 100.94 L 26.79 101.01 L 25.45 100.45 L 24.69 99.22 L 24.48 97.43 L 24.64 95.36 L 24.89 93.32 L 24.90 91.60 L 24.41 90.39 L 23.30 89.72 L 21.60 89.46 L 19.55 89.39 L 17.48 89.23 L 15.74 88.74 L 14.64 87.80 L 14.30 86.39 L 14.65 84.62 L 15.45 82.70 L 16.31 80.84 L 16.85 79.21 L 16.76 77.91 L 15.91 76.93 L 14.38 76.16 L 12.45 75.45 L 10.52 74.66 L 9.03 73.66 L 8.27 72.42 L 8.38 70.97 L 9.26 69.40 L 10.62 67.82 L 12.01 66.32 L 13.03 64.94 L 13.34 63.67 L 12.84 62.47 L 11.62 61.27 L 10.00 60.00 L 8.42 58.65 L 7.30 57.24 L 6.96 55.83 L 7.52 54.48 L 8.84 53.26 L 10.62 52.18 L 12.41 51.18 L 13.80 50.18 L 14.49 49.07 L 14.38 47.78 L 13.59 46.25 L 12.45 44.55 L 11.36 42.78 L 10.73 41.09 L 10.85 39.64 L 11.79 38.54 L 13.43 37.79 L 15.45 37.30 L 17.47 36.91 L 19.10 36.39 L 20.10 35.55 L 20.39 34.28 L 20.11 32.59 L 19.55 30.61 L 19.06 28.59 L 18.99 26.79 L 19.55 25.45 L 20.78 24.69 L 22.57 24.48 L 24.64 24.64 L 26.68 24.89 L 28.40 24.90 L 29.61 24.41 L 30.28 23.30 L 30.54 21.60 L 30.61 19.55 L 30.77 17.48 L 31.26 15.74 L 32.20 14.64 L 33.61 14.30 L 35.38 14.65 L 37.30 15.45 L 39.16 16.31 L 40.79 16.85 L 42.09 16.76 L 43.07 15.91 L 43.84 14.38 L 44.55 12.45 L 45.34 10.52 L 46.34 9.03 L 47.58 8.27 L 49.03 8.38 L 50.60 9.26 L 52.18 10.62 L 53.68 12.01 L 55.06 13.03 L 56.33 13.34 L 57.53 12.84 L 58.73 11.62 L 60.00 10.00 L 61.35 8.42 L 62.76 7.30 L 64.17 6.96 L 65.52 7.52 L 66.74 8.84 L 67.82 10.62 L 68.82 12.41 L 69.82 13.80 L 70.93 14.49 L 72.22 14.38 L 73.75 13.59 L 75.45 12.45 L 77.22 11.36 L 78.91 10.73 L 80.36 10.85 L 81.46 11.79 L 82.21 13.43 L 82.70 15.45 L 83.09 17.47 L 83.61 19.10 L 84.45 20.10 L 85.72 20.39 L 87.41 20.11 L 89.39 19.55 L 91.41 19.06 L 93.21 18.99 L 94.55 19.55 L 95.31 20.78 L 95.52 22.57 L 95.36 24.64 L 95.11 26.68 L 95.10 28.40 L 95.59 29.61 L 96.70 30.28 L 98.40 30.54 L 100.45 30.61 L 102.52 30.77 L 104.26 31.26 L 105.36 32.20 L 105.70 33.61 L 105.35 35.38 L 104.55 37.30 L 103.69 39.16 L 103.15 40.79 L 103.24 42.09 L 104.09 43.07 L 105.62 43.84 L 107.55 44.55 L 109.48 45.34 L 110.97 46.34 L 111.73 47.58 L 111.62 49.03 L 110.74 50.60 L 109.38 52.18 L 107.99 53.68 L 106.97 55.06 L 106.66 56.33 L 107.16 57.53 L 108.38 58.73 L 110.00 60.00 Z" fill="url(#waxG)" stroke="url(#waxRim)" stroke-width="1"/>
+            <circle cx="60" cy="60" r="41" fill="none" stroke="#8A6620" stroke-width="1.2" opacity=".4"/>
+            <g fill="none" stroke="#8E6A1E" stroke-width="1.4" opacity=".45">
+              <rect x="37" y="37" width="46" height="46" transform="rotate(45 60 60)"/>
+              <rect x="37" y="37" width="46" height="46"/>
+              <circle cx="60" cy="60" r="13"/>
+            </g>
+            <g fill="none" stroke="#FFFDF2" stroke-width="1.2" opacity=".9">
+              <rect x="36" y="36" width="46" height="46" transform="rotate(45 59 59)"/>
+              <circle cx="59" cy="59" r="13"/>
+            </g>
+            <ellipse cx="43" cy="39" rx="18" ry="12" fill="#FFFBEC" opacity=".38" transform="rotate(-28 43 39)"/>
+          </svg>
+        </div>
+
+
+      </div>
+
+      <span class="env-shadow" aria-hidden="true"></span>
+    </div>
+
+    <div class="letter" id="letter" aria-hidden="true">
+
+      <div class="letter-inner">
+        <span class="li-corner li-tl"></span>
+        <span class="li-corner li-tr"></span>
+        <span class="li-corner li-bl"></span>
+        <span class="li-corner li-br"></span>
+        <p class="li-eyebrow">بسم الله الرحمن الرحيم</p>
+        <p class="li-ayah">
+          <span class="ayah-br">﴿</span>وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً<span class="ayah-br">﴾</span>
+        </p>
+        <span class="li-orn">
+          <svg viewBox="0 0 240 20" aria-hidden="true">
+            <path d="M14 10h78 M148 10h78" stroke="#C9A25A" stroke-width=".9" fill="none"/>
+            <path d="M120 2c5 5 10 6 16 8-6 2-11 3-16 8-5-5-10-6-16-8 6-2 11-3 16-8z"
+                  fill="none" stroke="#EBD6A4" stroke-width="1"/>
+          </svg>
+        </span>
+      </div>
+
+      <div class="lf lf-l">
+        <span class="lf-face">
+          <span class="lf-wrap">
+            <span class="lc-txt">دعوة زفاف</span>
+            <span class="lc-orn">
+              <svg viewBox="0 0 240 20" aria-hidden="true">
+                <path d="M14 10h78 M148 10h78" stroke="#C9A25A" stroke-width=".9" fill="none"/>
+                <path d="M120 2c5 5 10 6 16 8-6 2-11 3-16 8-5-5-10-6-16-8 6-2 11-3 16-8z"
+                      fill="none" stroke="#EBD6A4" stroke-width="1"/>
+              </svg>
+            </span>
+          </span>
+          <span class="lf-sheen"></span>
+        </span>
+        <span class="lf-liner"></span>
+      </div>
+
+      <div class="lf lf-r">
+        <span class="lf-face">
+          <span class="lf-wrap">
+            <span class="lc-txt">دعوة زفاف</span>
+            <span class="lc-orn">
+              <svg viewBox="0 0 240 20" aria-hidden="true">
+                <path d="M14 10h78 M148 10h78" stroke="#C9A25A" stroke-width=".9" fill="none"/>
+                <path d="M120 2c5 5 10 6 16 8-6 2-11 3-16 8-5-5-10-6-16-8 6-2 11-3 16-8z"
+                      fill="none" stroke="#EBD6A4" stroke-width="1"/>
+              </svg>
+            </span>
+          </span>
+          <span class="lf-sheen"></span>
+        </span>
+        <span class="lf-liner"></span>
+      </div>
+
+      <span class="letter-seal" aria-hidden="true">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="52" fill="none" stroke="#C9A25A" stroke-width="1.1"/>
+          <circle cx="60" cy="60" r="45" fill="none" stroke="#C9A25A" stroke-width="2.4" opacity=".9"/>
+          <g fill="none" stroke="#C9A25A" stroke-width="1.2">
+            <rect x="34" y="34" width="52" height="52" transform="rotate(45 60 60)"/>
+            <rect x="34" y="34" width="52" height="52"/>
+            <circle cx="60" cy="60" r="14"/>
+            <circle cx="60" cy="60" r="6.5" opacity=".8"/>
+          </g>
+        </svg>
+      </span>
+
+    </div>
+
+    <button class="btn-open" id="openBtn" type="button">
+      <span class="btn-open-bg"></span>
+      <span class="btn-open-sweep"></span>
+      <span class="btn-open-txt">افتح الدعوة</span>
+    </button>
+
+    <p class="intro-hint">اضغط لبدء التجربة · مع الصوت</p>
+  </div>
+</section>
+
+
+<!-- ===================================================================
+     الدعوة — صفحة واحدة متصلة
+==================================================================== -->
+<main class="page" id="page">
+
+  <!-- ============ 1 · الافتتاح والاسم ============ -->
+  <section class="sec sec-hero" data-theme="1">
+    <div class="sec-in">
+      <div class="frame-gold">
+        <p class="rv basmala" style="--d:.02s">بسم الله الرحمن الرحيم</p>
+
+
+        <span class="rv orn-div" style="--d:.16s">
+          <svg viewBox="0 0 240 20" aria-hidden="true">
+            <path d="M6 10h84 M150 10h84" stroke="#C9A25A" stroke-width=".8" fill="none"/>
+            <path d="M120 2c5 5 10 6 16 8-6 2-11 3-16 8-5-5-10-6-16-8 6-2 11-3 16-8z"
+                  fill="none" stroke="#EBD6A4" stroke-width=".9"/>
+          </svg>
+        </span>
+
+        <p class="rv line-sm" style="--d:.28s">أبناء المرحوم</p>
+        <p class="rv line-md" style="--d:.4s">جميل الشيخ حسن</p>
+        <p class="rv line-sm" style="--d:.52s">وأقاربهم</p>
+
+        <span class="rv orn-div" style="--d:.64s">
+          <svg viewBox="0 0 240 20" aria-hidden="true">
+            <path d="M6 10h84 M150 10h84" stroke="#C9A25A" stroke-width=".8" fill="none"/>
+            <path d="M120 2c5 5 10 6 16 8-6 2-11 3-16 8-5-5-10-6-16-8 6-2 11-3 16-8z"
+                  fill="none" stroke="#EBD6A4" stroke-width=".9"/>
+          </svg>
+        </span>
+
+        <p class="rv line-sm" style="--d:.76s">يتشرفون بدعوة حضرتكم لحضور حفل زفاف ولدهم الغالي</p>
+
+        <div class="name-hero rv" style="--d:.92s">
+          <span class="name-beam" aria-hidden="true"></span>
+          <h1 class="groom-name">محمد زياد</h1>
+          <span class="name-foil" aria-hidden="true"></span>
+        </div>
+
+        <p class="rv line-xs" style="--d:1.75s">وفّقه الله وبارك له</p>
+      </div>
+    </div>
+
+    <div class="scroll-cue" id="scrollCue" aria-hidden="true">
+      <span class="cue-line"></span>
+      <span class="cue-txt">انزل بلطف</span>
+    </div>
+  </section>
+
+  <!-- ============ 2 · صورة العريس ============ -->
+  <section class="sec" data-theme="2">
+    <div class="sec-in">
+      <div class="portrait rv" style="--d:.05s">
+        <span class="portrait-halo" aria-hidden="true"></span>
+        <div class="portrait-frame">
+          <img id="groomImg" src="groom.jpeg?v=2" alt="محمد زياد" decoding="async" />
+          <span class="portrait-fallback" aria-hidden="true">
+            <svg viewBox="0 0 120 120"><text x="60" y="76" text-anchor="middle"
+              font-family="'Cormorant Garamond',serif" font-size="48" fill="#C9A25A">M</text></svg>
+          </span>
+          <span class="portrait-mask" aria-hidden="true"></span>
+          <span class="portrait-sheen" aria-hidden="true"></span>
+        </div>
+        <span class="portrait-ring" aria-hidden="true"></span>
+      </div>
+
+      <p class="rv micro" style="--d:.5s">العريس</p>
+      <h2 class="rv portrait-name gold-text" style="--d:.62s">محمد زياد</h2>
+      <p class="rv line-xs" style="--d:.76s">في ليلةٍ ننتظرها معكم</p>
+    </div>
+  </section>
+
+  <!-- ============ 3 · الأبيات ============ -->
+  <section class="sec" data-theme="4">
+    <div class="sec-in">
+      <span class="rv orn-top" style="--d:.05s">
+        <svg viewBox="0 0 160 60" aria-hidden="true">
+          <path d="M80 6c14 12 26 16 40 20-14 4-26 8-40 20-14-12-26-16-40-20 14-4 26-8 40-20z"
+                fill="none" stroke="#C9A25A" stroke-width=".7" opacity=".8"/>
+          <path d="M80 20c6 5 11 7 17 9-6 2-11 4-17 9-6-5-11-7-17-9 6-2 11-4 17-9z"
+                fill="none" stroke="#EBD6A4" stroke-width=".7"/>
+        </svg>
+      </span>
+
+      <div class="verse">
+        <p class="v-line rv" style="--d:.2s"><span>بشِّر أحبتي وأهل مودتي</span></p>
+        <p class="v-line rv" style="--d:.55s"><span>أفراحنا قد أقبلت أوقاتها</span></p>
+        <p class="v-line rv v-gap" style="--d:.9s"><span>وكل صديق يريد مسرّتي</span></p>
+        <p class="v-line rv" style="--d:1.25s"><span>وليَزدد أفراحنا بوجود أحبتي</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4 · تفاصيل الحفل ============ -->
+  <section class="sec sec-tight" data-theme="3">
+    <div class="sec-in">
+      <p class="rv micro" style="--d:.05s">تفاصيل الحفل</p>
+
+      <div class="glass-card rv" style="--d:.18s">
+        <span class="gc-label">التاريخ</span>
+        <span class="gc-value">الخميس</span>
+        <span class="gc-num">27 . 08 . 2026</span>
+      </div>
+
+      <div class="glass-card rv" style="--d:.32s">
+        <span class="gc-label">الوقت</span>
+        <span class="gc-value">الساعة السابعة مساءً</span>
+        <span class="gc-num">19:00</span>
+      </div>
+
+      <div class="glass-card rv" style="--d:.46s">
+        <span class="gc-label">المكان</span>
+        <span class="gc-value">منتجع الواحة</span>
+        <span class="gc-num gc-num-ar">أم الفحم</span>
+      </div>
+
+      <a class="waze rv" style="--d:.56s" href="https://waze.com/ul/hsvbcpfxub" target="_blank" rel="noopener">
+        <span class="waze-bg"></span>
+        <span class="waze-sweep"></span>
+        <span class="waze-in">
+          <svg class="waze-ico" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2.4c-4.3 0-7.8 3.2-7.8 7.2 0 4.9 6.3 10.6 7.4 11.6.2.2.6.2.8 0 1.1-1 7.4-6.7 7.4-11.6 0-4-3.5-7.2-7.8-7.2z"
+                  fill="none" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="12" cy="9.4" r="2.6" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+          <span class="waze-txt">الموقع عبر Waze</span>
+        </span>
+      </a>
+
+
+    </div>
+  </section>
+
+  <!-- ============ 5 · العشاء والمنشد ============ -->
+  <section class="sec" data-theme="5">
+    <div class="sec-in">
+      <span class="rv orn-top" style="--d:.08s">
+        <svg viewBox="0 0 120 70" aria-hidden="true">
+          <g fill="none" stroke="#C9A25A" stroke-width=".8">
+            <path d="M60 8v54"/>
+            <path d="M60 20c-9 3-14 9-16 18 9-2 14-8 16-18z"/>
+            <path d="M60 20c9 3 14 9 16 18-9-2-14-8-16-18z"/>
+            <path d="M60 38c-7 3-11 8-12 15 7-2 11-7 12-15z"/>
+            <path d="M60 38c7 3 11 8 12 15-7-2-11-7-12-15z"/>
+          </g>
+        </svg>
+      </span>
+
+      <div class="dinner-panel rv" style="--d:.2s">
+        <span class="dp-glow" aria-hidden="true"></span>
+        <p class="dp-lead">ولتَناول</p>
+        <h2 class="dp-title gold-text">طعام العشاء</h2>
+        <p class="dp-body">على مائدة والد العريس</p>
+
+        <span class="dp-div" aria-hidden="true">
+          <svg viewBox="0 0 240 16"><path d="M12 8h84 M144 8h84" stroke="#C9A25A" stroke-width=".9" fill="none"/>
+            <path d="M120 1c5 5 10 6 16 7-6 1-11 2-16 7-5-5-10-6-16-7 6-1 11-2 16-7z"
+                  fill="none" stroke="#EBD6A4" stroke-width=".9"/></svg>
+        </span>
+
+        <p class="dp-lead">ويُحيي الحفل</p>
+        <p class="dp-guest">المنشد أحمد خالد</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6 · العد التنازلي ============ -->
+  <section class="sec" data-theme="6">
+    <div class="sec-in">
+      <p class="rv micro" style="--d:.05s">بقي على الفرح</p>
+
+      <div class="cd" id="countdown">
+        <div class="cd-cell rv" style="--d:.18s"><span class="cd-num" id="cdD">00</span><span class="cd-lbl">يوم</span></div>
+        <div class="cd-cell rv" style="--d:.3s"><span class="cd-num" id="cdH">00</span><span class="cd-lbl">ساعة</span></div>
+        <div class="cd-cell rv" style="--d:.42s"><span class="cd-num" id="cdM">00</span><span class="cd-lbl">دقيقة</span></div>
+        <div class="cd-cell rv" style="--d:.54s"><span class="cd-num" id="cdS">00</span><span class="cd-lbl">ثانية</span></div>
+      </div>
+
+      <p class="cd-done" id="cdDone" hidden>اليوم فرحنا · أهلاً بكم</p>
+
+      <p class="rv line-xs" style="--d:.7s">الخميس 27.08.2026 · الساعة السابعة مساءً</p>
+    </div>
+  </section>
+
+  <!-- ============ 7 · النهاية ============ -->
+  <section class="sec sec-finale" data-theme="1">
+    <div class="sec-in">
+      <span class="rv orn-div" style="--d:.05s">
+        <svg viewBox="0 0 240 20" aria-hidden="true">
+          <path d="M6 10h84 M150 10h84" stroke="#C9A25A" stroke-width=".8" fill="none"/>
+          <path d="M120 2c5 5 10 6 16 8-6 2-11 3-16 8-5-5-10-6-16-8 6-2 11-3 16-8z"
+                fill="none" stroke="#EBD6A4" stroke-width=".9"/>
+        </svg>
+      </span>
+
+      <h2 class="rv finale gold-text" style="--d:.2s">محمد زياد</h2>
+      <p class="rv finale-line" style="--d:.4s">حضور الأحبة هو ما يكمل الفرحة</p>
+      <p class="rv line-xs" style="--d:.6s">منتجع الواحة – أم الفحم</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
